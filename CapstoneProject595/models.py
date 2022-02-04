@@ -11,3 +11,5 @@ class User(models.Model):
     weight_in_pounds = models.IntegerField(max_length=3)
     age = models.IntegerField(max_length=3)
     sex = models.BooleanField()
+
+
