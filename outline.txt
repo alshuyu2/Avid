@@ -1,0 +1,87 @@
+Unit tests:
+    Adding a 1000 users
+    Check if user inputs the correct data type
+
+Class User(models.Model):
+    Name = models.CharField(max_length=60)
+	    Height_in_inches = models.IntegerField()
+    Weight_in_pounds  = models.IntegerField()
+    Age = models.IntegerField()
+    Sex = models.BooleanField()
+
+Class exercise(models.Model):
+    Equipment= Equipment object
+    Calories burned = models.IntegerField()
+    Muscle group = muscle object
+    Picture = image in HTML
+    Description = models.CharField(max_length=200)
+    Video =
+
+Class muscle(models.Model):
+    Muscle_name = models.CharField(max_length=60)
+
+Class equipment(models.Model):
+    Equipment_name = models.CharField(max_length=60)
+
+
+Program Functions:
+    new_User: takes in variables needed for a user to get started and creates a User_ID
+    Name(String)
+    Height(two integers; feet, inches)
+    Weight(One integer; pounds)
+    Age(Integer)
+    Sex(String)
+
+Delete_User: deletes the user profile based on the user ID
+    User_ID
+
+Add_exercise: takes a variable chosen from a list
+    Exercise object
+    Based on type of exercise
+    Running(double miles)
+    Walking(double miles)
+    Lifting(integers; reps and sets
+
+Remove_exercise: removes an exercise from one that the user already has
+    Exercise object
+
+Add_daily_goal:
+    To have users login (boolean)
+    To have users perform exercise (boolean)
+    Recommendation message
+
+Add_experience:  User gets experience from completing exercises or daily goals (Point/Level System)
+    EXP (Integer)
+    Lvl (integer)
+
+Add_Meal: adds a food_object to a persons daily food intake
+    Food_Object(From a list)
+    Weight_of_food(integers; grams, lb)
+
+Remove_meal: remove a food_object to a person daily food intake:
+    Food_object (from a list)
+    Date of entry (built in Python data type)
+	    -https://www.geeksforgeeks.org/datefield-django-models/?ref=lbp
+
+Weight_graph_tracker:
+    Weight Integer: date, pounds)
+    Search by category
+
+Exercise list
+    Muscle/ equipment/ Favorite group
+
+Food diary
+    Daily recommendation
+    Exercise list(Exercise object)
+
+Weight goal
+    Calorie limit
+    Personal workout routine
+
+Favorite exercise
+    Daily report
+    Graphs
+    Calories burned
+    Exercises done
+    Duration
+
