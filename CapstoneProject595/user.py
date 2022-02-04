@@ -6,3 +6,4 @@ class User():
         self.weight = weight
         self.age = age
         self.sex = sex
+
