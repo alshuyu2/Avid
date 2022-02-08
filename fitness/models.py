@@ -30,3 +30,18 @@ class Equipment(models.Model):
 
 class Muscle(models.Model):
     name = models.CharField(max_length=50,null=True)
+
+class WeightGraphTracker(models.Model):
+    name = models.CharField(max_length=50)
+    weight_in_pounds = models.ManyToManyField('Weight')
+
+    def __str__(self):
+        return self.name
+
+
+class Weight(models.Model):
+
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name

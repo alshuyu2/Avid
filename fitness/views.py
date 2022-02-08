@@ -5,7 +5,6 @@ from django.contrib import messages, auth
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 
-
 # Create your views here.
 
 class LoginView(View):
