@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# from fitness import views
+# from django.conf.urls import url
+from fitness.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', LoginView.as_view())
 ]
-
-#This is Xin
-
