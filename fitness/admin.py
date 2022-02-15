@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Exercise, Equipment, Muscle
+from .models import Exercise, Equipment, Muscle
 
 from django.contrib.auth.admin import UserAdmin
 
@@ -11,7 +11,7 @@ class MyUserAdmin(UserAdmin):
     add_form = MyUserCreationForm
     form = MyUserChangeForm
     model = MyUser
-    list_display = ['username', 'name', 'height', "weight", 'age', 'sex']
+    list_display = ['username', 'name', 'height_in_inches', "weight_in_pounds", 'age', 'sex']
 
 # Register your models here.
 

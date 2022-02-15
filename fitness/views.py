@@ -11,10 +11,12 @@ class LoginView(View):
 
     def get(self, request):
         # go to the login page for now
-        return render(request, "base.html")
+        return render(request, "login.html")
 
     def post(self, request):
-        return None
+        request.POST["name"]
+
+        return render(request, "base.html")
 
 
 def log_out(request):

@@ -21,5 +21,6 @@ from fitness.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LoginView.as_view())
+    path('', LoginView.as_view()),
+    path('login/', LoginView.as_view())
 ]

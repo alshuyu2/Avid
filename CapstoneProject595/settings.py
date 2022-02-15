@@ -131,10 +131,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts' # new
-
+    'fitness',
 
 
 ]
 
-AUTH_USER_MODEL = 'CapstoneProject595.my_User'
+AUTH_USER_MODEL = 'fitness.myUser'
