@@ -19,3 +19,11 @@ class LoginView(View):
 
 def log_out(request):
     return None
+
+class my_User(View):
+
+    def new_user(self, name, height, weight, age, sex):
+        return None
+
+    def delete_user(self, user_id):
+        return None

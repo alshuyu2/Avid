@@ -3,13 +3,19 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from django.contrib.auth.models import  AbstractUser
 
-class User(models.Model):
+
+class MyUser(AbstractUser):
+    pass
     name = models.CharField(max_length=60)
     height_in_inches = models.IntegerField(max_length=3)
     weight_in_pounds = models.IntegerField(max_length=3)
     age = models.IntegerField(max_length=3)
     sex = models.BooleanField()
+
+    def __str__(self):
+        return self.username
 
 
 class Exercise(models.Model):
@@ -31,10 +37,12 @@ class Equipment(models.Model):
 class Muscle(models.Model):
     name = models.CharField(max_length=50,null=True)
 
+
 class WeightGraphTracker(models.Model):
     name = models.CharField(max_length=50)
     weight = models.ManyToManyField('Weight')
     day = models.ManyToManyField('Date')
+
     def __str__(self):
         return self.name
 
