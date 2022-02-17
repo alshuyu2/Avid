@@ -6,7 +6,6 @@ from django.contrib import messages, auth
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 
-import datetime
 
 # Create your views here.
 
@@ -14,10 +13,10 @@ import datetime
 class LoginView(View):
 
     def get(self, request):
-        return render(request, "login.html")
+        return render(request, "../registration/login.html")
 
     def post(self, request):
-        return render(request, "login.html")
+        return render(request, "../registration/login.html")
 
 
 class MyUserView(View):
