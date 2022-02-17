@@ -11,11 +11,25 @@ class LoginView(View):
 
     def get(self, request):
         # go to the login page for now
-        return render(request, "base.html")
+        path = {request.path}
+        if path == "/home/":
+            return render(request, "base.html")
+        else:
+            return render(request, "login.html")
 
     def post(self, request):
-        return None
+        #request.POST["name"]
+
+        return render(request, "base.html")
 
 
 def log_out(request):
     return None
+
+class my_User(View):
+
+    def new_user(self, name, height, weight, age, sex):
+        return None
+
+    def delete_user(self, user_id):
+        return None

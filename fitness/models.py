@@ -3,18 +3,24 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from django.contrib.auth.models import AbstractUser
 
-class User(models.Model):
+
+class MyUser(AbstractUser):
+    pass
     name = models.CharField(max_length=60)
-    height_in_inches = models.IntegerField(max_length=3)
-    weight_in_pounds = models.IntegerField(max_length=3)
-    age = models.IntegerField(max_length=3)
+    height_in_inches = models.IntegerField()
+    weight_in_pounds = models.IntegerField()
+    age = models.IntegerField()
     sex = models.BooleanField()
+
+    def __str__(self):
+        return self.username
 
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
-    id = models.IntegerField(null=True)
+    id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
     equipment = models.ManyToManyField('Equipment')
     muscle = models.ManyToManyField('Muscle')
