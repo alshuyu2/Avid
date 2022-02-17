@@ -11,10 +11,14 @@ class LoginView(View):
 
     def get(self, request):
         # go to the login page for now
-        return render(request, "login.html")
+        path = {request.path}
+        if path == "/home/":
+            return render(request, "base.html")
+        else:
+            return render(request, "login.html")
 
     def post(self, request):
-        request.POST["name"]
+        #request.POST["name"]
 
         return render(request, "base.html")
 
