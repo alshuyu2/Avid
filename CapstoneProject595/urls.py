@@ -18,10 +18,13 @@ from django.urls import path
 from fitness import views
 #from django.conf.urls import url
 from fitness.views import LoginView
+from fitness.views import MyUserView
+from fitness.views import MainView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', LoginView.as_view()),
     path('login/', LoginView.as_view()),
-    path('', LoginView.as_view())
+    path('createUser/', MyUserView.as_view()),
+    path('', MainView.as_view())
 ]
