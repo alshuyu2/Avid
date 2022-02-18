@@ -3,19 +3,29 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from .managers import CustomUserManager
+
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
 
 
 class MyUser(AbstractUser):
-    pass
-    name = models.CharField(max_length=60)
-    height_in_inches = models.IntegerField()
-    weight_in_pounds = models.IntegerField()
-    age = models.IntegerField()
-    sex = models.BooleanField()
+    username = None
+    email = models.EmailField(_('email address'), unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = CustomUserManager()
+
+    #name = models.CharField(max_length=60)
+    #height_in_inches = models.IntegerField()
+    #weight_in_pounds = models.IntegerField()
+    #age = models.IntegerField()
+    #sex = models.BooleanField()
 
     def __str__(self):
-        return self.username
+        return self.email
 
 
 class Exercise(models.Model):
@@ -31,11 +41,11 @@ class Exercise(models.Model):
 
 
 class Equipment(models.Model):
-    name = models.CharField(max_length=50,null=True)
+    name = models.CharField(max_length=50, null=True)
 
 
 class Muscle(models.Model):
-    name = models.CharField(max_length=50,null=True)
+    name = models.CharField(max_length=50, null=True)
 
 
 class WeightGraphTracker(models.Model):
