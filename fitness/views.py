@@ -58,3 +58,8 @@ def userpage(request):
 
 def settings(request):
     return render(request=request, template_name='settings.html')
+
+
+def about(request):
+    return render(request=request, template_name='about.html')
+
