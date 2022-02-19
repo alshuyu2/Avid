@@ -102,9 +102,14 @@ footer {
   </nav>
 
   <article>
-    <h1>Welcome, {{user.email}}!</h1>
-    <p>Here is a graph of your progress:</p>
-    <p>this is a graph</p>
+      <!--{% if user.name is '' %}
+          <h1>Welcome, {{user.email}}!</h1>
+      {% else %}
+          <h1>Welcome, {{user.name}}!</h1>
+      {% endif %}
+      <p>Here is a graph of your progress:</p>
+      <p>this is a graph</p>-->
+        <h1>Welcome, {{user.name}}!</h1>
   </article>
 </section>
 

@@ -14,7 +14,11 @@
       <li><a href="/userpage">Home</a></li>
     </ul>
   </nav>
-
+        <form method="POST" action="/name">
+            {% csrf_token %}
+            <input type="text" name="name">
+            <button type="submit">submit</button>
+        </form>
     {% endblock %}
 </body>
 </html>

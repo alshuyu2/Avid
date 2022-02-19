@@ -1,15 +1,14 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 # Create your tests here.
-from django.contrib.auth import get_user_model
-from django.test import TestCase
 
 
 class UsersManagersTests(TestCase):
     def test_create_user(self):
         User = get_user_model()
-        user = User.objects.create_user(email='normal@user.com', password='foo')
-        self.assertEqual(user.email, 'normal@user.com')
+        user = User.objects._create_user(email='test@user.com', password='foo')
+        self.assertEqual(user.email, 'test@user.com')
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
@@ -20,11 +19,11 @@ class UsersManagersTests(TestCase):
         except AttributeError:
             pass
         with self.assertRaises(TypeError):
-            User.objects.create_user()
+            User.objects._create_user()
         with self.assertRaises(TypeError):
-            User.objects.create_user(email='')
+            User.objects._create_user(email='')
         with self.assertRaises(ValueError):
-            User.objects.create_user(email='', password="foo")
+            User.objects._create_user(email='', password="foo")
 
     def test_create_superuser(self):
         User = get_user_model()

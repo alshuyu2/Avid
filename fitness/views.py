@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .forms import MyUserCreationForm
 from django.http import HttpResponse
-# fitness.models import User, Exercise, Equipment, Muscle
+from fitness.models import MyUser
 from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
-
+from django.contrib.auth import get_user_model
 
 # Create your views here.
+
 
 def register_request(request):
     if request.method == 'POST':
@@ -62,4 +63,9 @@ def settings(request):
 
 def about(request):
     return render(request=request, template_name='about.html')
+
+
+def name(request):
+    User = get_user_model()
+    return render(request=request, template_name='settings.html')
 

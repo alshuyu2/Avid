@@ -36,4 +36,5 @@ urlpatterns = [
     path('userpage/', views.userpage, name='userpage'),
     path('settings', views.settings, name='settings'),
     path('about', views.about, name='about'),
+    path('name', views.name, name='name'),
 ]
