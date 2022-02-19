@@ -33,7 +33,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f'You are now logged in as {email}.')
-                return redirect('homepage')
+                return redirect('userpage')
             else:
                 messages.error(request, 'Invalid email or password.')
         else:
@@ -52,31 +52,9 @@ def homepage(request):
     return render(request=request, template_name='home.html')
 
 
-class LoginView(View):
-
-    def get(self, request):
-        return render(request, "../registration/../templates/login.html")
-
-    def post(self, request):
-        return render(request, "../registration/../templates/login.html")
+def userpage(request):
+    return render(request=request, template_name='userpage.html')
 
 
-class MyUserView(View):
-
-    def get(self, request):
-
-        return render(request, "register.html")
-
-    def new_user(self, request):
-
-        return render(request, "register.html")
-
-    def delete_user(self, user_id):
-        return None
-
-
-class MainView(View):
-
-    def get(self, request):
-        return render(request, "base.html")
-
+def settings(request):
+    return render(request=request, template_name='settings.html')
