@@ -8,6 +8,16 @@
 * {
   box-sizing: border-box;
 }
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -60,7 +70,7 @@ section::after {
 footer {
   background-color: #777;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   color: white;
 }
 
@@ -84,10 +94,10 @@ footer {
 <section>
   <nav>
     <ul>
-      <li><a href="/settings">Profile Settings</a></li>
-      <li><a href="#">Track Workouts</a></li>
-      <li><a href="#">Track Meals</a></li>
-        <li><a href="/logout">Logout</a></li>
+      <li><a href="/settings">Profile Settings</a></li><p></p>
+      <li><a href="#">Track Workouts</a></li><p></p>
+      <li><a href="#">Track Meals</a></li><p></p>
+        <li><a href="/logout">Logout</a></li><p></p>
     </ul>
   </nav>
 
@@ -99,7 +109,10 @@ footer {
 </section>
 
 <footer>
-  <p>Footer</p>
+    <a href="/about">About</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a>
 </footer>
 
 </body>
