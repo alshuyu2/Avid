@@ -7,6 +7,7 @@ from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
+from .forms import ImageForm
 
 # Create your views here.
 
@@ -82,3 +83,17 @@ def edit_user(request):
         messages.error(request, 'Successfully Updated Profile')
     return render(request=request, template_name='settings.html')
 
+
+def image_upload_view(request):
+    """Process images uploaded by users"""
+    User = request.user
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Get the current instance object to display in the template
+            img_obj = form.instance
+            return render(request, 'settings.html', {'form': form, 'img_obj': img_obj})
+    else:
+        form = ImageForm()
+    return render(request, 'index.html', {'form': form})

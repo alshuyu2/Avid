@@ -17,10 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from fitness import views
-# from django.conf.urls import url
-#from fitness.views import LoginView
-#from fitness.views import MyUserView
-#from fitness.views import MainView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +36,8 @@ urlpatterns = [
     path('settings', views.settings, name='settings'),
     path('about', views.about, name='about'),
     path('edit_user', views.edit_user, name='edit_user'),
+    path('upload/', views.image_upload_view, name='upload'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

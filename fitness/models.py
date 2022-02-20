@@ -27,6 +27,8 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     weight_in_pounds = models.IntegerField(default=0, null=True)
     age = models.IntegerField(default=0, null=True)
 
+    profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -92,3 +94,11 @@ class Date(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images')
+
+    def __str__(self):
+        return self.title
