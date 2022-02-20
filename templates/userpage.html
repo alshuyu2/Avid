@@ -102,14 +102,33 @@ footer {
   </nav>
 
   <article>
-      <!--{% if user.name is '' %}
-          <h1>Welcome, {{user.email}}!</h1>
-      {% else %}
-          <h1>Welcome, {{user.name}}!</h1>
-      {% endif %}
-      <p>Here is a graph of your progress:</p>
-      <p>this is a graph</p>-->
-        <h1>Welcome, {{user.name}}!</h1>
+      <h1>Welcome, {{user.name}}!</h1>
+      <p>About you:</p>
+      <ul>
+          {% if user.height_in_inches is 0 %}
+              <li>Height: (unknown, please enter in your Profile Settings)</li>
+          {% else %}
+              <li>Height: {{ user.height_in_inches }}</li>
+          {% endif %}
+
+          {% if user.weight_in_pounds is 0 %}
+              <li>Weight: (unknown, please enter in your Profile Settings)</li>
+          {% else %}
+              <li>Weight: {{ user.weight_in_pounds }}</li>
+          {% endif %}
+
+          {% if user.age is 0 %}
+              <li>Age: (unknown, please enter in your Profile Settings)</li>
+          {% else %}
+              <li>Age: {{ user.age }}</li>
+          {% endif %}
+
+          {% if user.sex is False %}
+              <li>Sex: Female</li>
+          {% else %}
+              <li>Sex: Male</li>
+          {% endif %}
+      </ul>
   </article>
 </section>
 
@@ -121,4 +140,11 @@ footer {
 </footer>
 
 </body>
+{% if messages %}
+    <ul>
+   {% for message in messages %}
+	   <li>{{ message }}</li>
+   {% endfor %}
+</ul>
+{% endif %}
 </html>

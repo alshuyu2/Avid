@@ -25,9 +25,9 @@ from fitness import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    #path('home/', LoginView.as_view()),
+    # path('home/', LoginView.as_view()),
     # path('login/', LoginView.as_view()),
-    #path('createUser/', MyUserView.as_view()),
+    # path('createUser/', MyUserView.as_view()),
     # path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('', views.homepage, name='homepage'),
     path('register', views.register_request, name='register'),
@@ -36,5 +36,5 @@ urlpatterns = [
     path('userpage/', views.userpage, name='userpage'),
     path('settings', views.settings, name='settings'),
     path('about', views.about, name='about'),
-    path('name', views.name, name='name'),
+    path('edit_user', views.edit_user, name='edit_user'),
 ]

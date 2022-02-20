@@ -8,4 +8,11 @@
     <p>We are just some college students making a project</p>
     <a href="/userpage">Home</a>
 </body>
+{% if messages %}
+    <ul>
+   {% for message in messages %}
+	   <li>{{ message }}</li>
+   {% endfor %}
+</ul>
+{% endif %}
 </html>
