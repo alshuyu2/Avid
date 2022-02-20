@@ -17,4 +17,11 @@
   </form>
   <p class="text-center">Don't have an account? <a href="register">Create an account</a>.</p>
 </div>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
 {% endblock %}

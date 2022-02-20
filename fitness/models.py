@@ -14,10 +14,18 @@ from django.utils.translation import gettext_lazy as _
 class MyUser(AbstractBaseUser, PermissionsMixin):
     # username = None
     email = models.EmailField(_('email address'), unique=True)
+
     name = models.CharField(_('name'), max_length=30, blank=True)
+
     is_staff = models.BooleanField(_('staff'), default=False)
     is_active = models.BooleanField(_('active'), default=True)
+    sex = models.BooleanField(default=False)
+
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
+
+    height_in_inches = models.IntegerField(default=0, null=True)
+    weight_in_pounds = models.IntegerField(default=0, null=True)
+    age = models.IntegerField(default=0, null=True)
 
     objects = CustomUserManager()
 
@@ -31,11 +39,11 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     def get_name(self):
         return self.name
 
-    #name = models.CharField(max_length=60)
-    #height_in_inches = models.IntegerField()
-    #weight_in_pounds = models.IntegerField()
-    #age = models.IntegerField()
-    #sex = models.BooleanField()
+    # name = models.CharField(max_length=60)
+    # height_in_inches = models.IntegerField()
+    # weight_in_pounds = models.IntegerField()
+    # age = models.IntegerField()
+    # sex = models.BooleanField()
 
     def __str__(self):
         return self.email

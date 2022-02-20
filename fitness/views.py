@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import MyUserCreationForm
+from .forms import MyUserCreationForm, MyUserChangeForm
 from django.http import HttpResponse
 from fitness.models import MyUser
 from django.contrib import messages, auth
@@ -19,7 +19,9 @@ def register_request(request):
             login(request, user)
             messages.success(request, 'Registration successful.')
             return redirect('homepage')
-        messages.error(request, 'Unsuccessful registration. Invalid information.')
+        messages.error(request, 'Unsuccessful registration.')
+        messages.error(request, form.errors)
+
     form = MyUserCreationForm()
     return render(request=request, template_name='register.html', context={'register_form': form})
 
@@ -65,7 +67,18 @@ def about(request):
     return render(request=request, template_name='about.html')
 
 
-def name(request):
-    User = get_user_model()
+def edit_user(request):
+    User = request.user
+    if request.method == 'POST':
+        User.name = request.POST['name']
+        User.height_in_inches = request.POST['height_in_inches']
+        User.weight_in_pounds = request.POST['weight_in_pounds']
+        if request.POST['sex'] == 'male':
+            User.sex = True
+        else:
+            User.sex = False
+        User.age = request.POST['age']
+        User.save()
+        messages.error(request, 'Successfully Updated Profile')
     return render(request=request, template_name='settings.html')
 
