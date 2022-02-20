@@ -40,7 +40,7 @@ header {
 nav {
   float: left;
   width: 20%;
-  height: 300px; /* only for demonstration, should be removed */
+  /*height: 400px; /* only for demonstration, should be removed */
   background: #ccc;
   padding: 20px;
 }
@@ -56,7 +56,7 @@ article {
   padding: 20px;
   width: 80%;
   background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
+  /*height: 400px; /* only for demonstration, should be removed */
 }
 
 /* Clear floats after the columns */
@@ -83,53 +83,60 @@ footer {
 }
 </style>
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-
-
 
 <header id = "grad1">
   <h2 style = "color: black">Avid: Compete for a better You</h2>
 </header>
 
 <section>
-  <nav>
-    <ul>
-      <li><a href="/settings">Profile Settings</a></li><p></p>
-      <li><a href="#">Track Workouts</a></li><p></p>
-      <li><a href="#">Track Meals</a></li><p></p>
-        <li><a href="/logout">Logout</a></li><p></p>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="/settings">Profile Settings</a></li><p></p>
+            <li><a href="#">Track Workouts</a></li><p></p>
+            <li><a href="#">Track Meals</a></li><p></p>
+            <li><a href="/logout">Logout</a></li><p></p>
+        </ul>
+    </nav>
 
-  <article>
-      <h1>Welcome, {{user.name}}!</h1>
-      <p>About you:</p>
-      <ul>
-          {% if user.height_in_inches is 0 %}
-              <li>Height: (unknown, please enter in your Profile Settings)</li>
-          {% else %}
-              <li>Height: {{ user.height_in_inches }}</li>
-          {% endif %}
+    <article>
+        <h1>Welcome, {{user.name}}!</h1>
+        <div class="content-section">
+            <div class="media">
+                <img class="rounded-circle" src="/{{ user.profile_picture }}" width="100" height="100">
+            </div>
+        </div>
+        <p>About you:</p>
+        <ul>
+            {% if user.height_in_inches is 0 %}
+                <li>Height: (unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li>Height: {{ user.height_in_inches }} inches</li>
+            {% endif %}
 
-          {% if user.weight_in_pounds is 0 %}
-              <li>Weight: (unknown, please enter in your Profile Settings)</li>
-          {% else %}
-              <li>Weight: {{ user.weight_in_pounds }}</li>
-          {% endif %}
+            {% if user.weight_in_pounds is 0 %}
+                <li>Weight: (unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li>Weight: {{ user.weight_in_pounds }} lbs</li>
+            {% endif %}
 
-          {% if user.age is 0 %}
-              <li>Age: (unknown, please enter in your Profile Settings)</li>
-          {% else %}
-              <li>Age: {{ user.age }}</li>
-          {% endif %}
+            {% if user.age is 0 %}
+                <li>Age: (unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li>Age: {{ user.age }}</li>
+            {% endif %}
 
-          {% if user.sex is False %}
-              <li>Sex: Female</li>
-          {% else %}
-              <li>Sex: Male</li>
-          {% endif %}
-      </ul>
-  </article>
+            {% if user.sex is False %}
+                <li>Sex: Female</li>
+            {% else %}
+                <li>Sex: Male</li>
+            {% endif %}
+        </ul>
+    </article>
 </section>
 
 <footer>
@@ -138,7 +145,6 @@ footer {
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a>
 </footer>
-
 </body>
 {% if messages %}
     <ul>
