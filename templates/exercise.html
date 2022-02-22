@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>{{ exercise.name }}</h1>
+    <!--add picture-->
+    <p>Picture</p>
+    <p>Calories : {{ exercise.calories }}</p>
+    <!-- for loop needed, not implemented for now-->
+    <p>Equipment needed : {{ exercise.equipment }}</p>
+    <!-- for loop needed, not implemented for now-->
+    <p>Muscle : {{ exercise.muscle }} </p>
+
+</div>
+
+<div class="content">
+  <h1>Description</h1>
+  <p>{{ exercise.description }}</p>
+</div>
+
+<form>
+ <input type="button" value="Go back!" onclick="history.back()">
+</form>
+
+</body>
+</html>
