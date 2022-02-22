@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'fitness',
     'crispy_forms',
     'bootstrap4',
-
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

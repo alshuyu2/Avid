@@ -1,3 +1,10 @@
+{% load static %}
+
+  <link rel="stylesheet"
+        type = "text/css"
+        href= "{ % static 'CapstoneProject595/css/bootstrap.css' % }" />
+
+
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
    {{ form.as_p }}
