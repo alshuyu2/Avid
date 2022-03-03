@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
 from .forms import ImageForm
+from .models import Exercise
 
 # Create your views here.
 
@@ -97,3 +98,26 @@ def image_upload_view(request):
     else:
         form = ImageForm()
     return render(request, 'index.html', {'form': form})
+
+# unfinished
+
+# class RoutinePage(View):
+#     def get(self, request):
+#         if request.session.get("username"):
+#             return render(request, "routine.html")
+#         return render(request, 'registration/login.html')
+#
+#     def post(self, request):
+#         name = request.Post['name']
+
+
+# display exercise detail in another page
+class ExercisePage(View):
+    def get(self, request):
+        exercise_name = request.POST["exercise_name"]
+        return render(request, 'exercise.html', {"exercise": Exercise.objects.filter(exercise_name)})
+
+    def post(self, request):
+        pass
+
+

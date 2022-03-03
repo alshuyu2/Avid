@@ -2,12 +2,40 @@
 {% extends 'header.html' %}
 
 {% block title %}Login{% endblock %}
+ {% block content %}
 
-{% block content %}
+<html>
+<style>
+
+
+
+    body{
+         margin:0;
+	    padding:0;
+        font-family: 'Raleway',sans-serif;
+        background: rgba(85, 85, 129, 1) ;
+        color: white;
+    }
+
+  .container py-5 {
+        height: 10em;
+        display: flex;
+        align-items: center;
+        font-family: 'Raleway',sans-serif;
+        color: white;
+  }
+
+
+
+
+
+</style>
     {% load crispy_forms_tags %}
 
-
+<body>
     <!--Login-->
+
+
 <div class="container py-5">
   <h1>Login</h1>
   <form method="POST">
@@ -24,4 +52,10 @@
     {% endfor %}
     </ul>
     {% endif %}
-{% endblock %}
+   {% endblock %}
+
+</body>
+
+
+
+</html>
