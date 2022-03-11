@@ -112,12 +112,10 @@ def image_upload_view(request):
 
 
 # display exercise detail in another page
-class ExercisePage(View):
-    def get(self, request):
-        exercise_name = request.POST["exercise_name"]
-        return render(request, 'exercise.html', {"exercise": Exercise.objects.filter(exercise_name)})
+def exercise_main(request):
+    return render(request=request, template_name='exercise_main.html')
 
-    def post(self, request):
-        pass
 
+def exercise_add(request):
+    return render(request=request, template_name='exercise_add.html')
 
