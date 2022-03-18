@@ -113,9 +113,32 @@ def image_upload_view(request):
 
 # display exercise detail in another page
 def exercise_main(request):
-    return render(request=request, template_name='exercise_main.html')
+    ex = list(Exercise.objects.values())
+    print(ex)
+    Userex = list(request.user.my_exercises.all())
+    return render(request=request, template_name='exercise_main.html', context={"exercises": ex,
+                                                                                "userexercises": Userex})
 
 
 def exercise_add(request):
-    return render(request=request, template_name='exercise_add.html')
-
+    ex = list(Exercise.objects.values())
+    User = request.user
+    Userex = list(request.user.my_exercises.all())
+    if request.method == 'GET':
+        print(request.GET['exercise'])
+        return render(request=request, template_name='exercise_add.html', context={"exercise": request.GET['exercise'],
+                                                                                   "exercises": ex})
+    elif request.method == 'POST':
+        newExercise = request.POST['exercise']
+        for i in ex:
+            if newExercise in i['name']:
+                ex2 = list(Exercise.objects.all())
+                for j in ex2:
+                    if i['name'] == j.name:
+                        for k in User.my_exercises.all():
+                            if j == k:
+                                return render(request=request, template_name='exercise_main.html',
+                                              context={"exercises": ex})
+                        User.my_exercises.add(j)
+        return render(request=request, template_name='exercise_main.html', context={"exercises": ex,
+                                                                                    "userexercises": Userex})

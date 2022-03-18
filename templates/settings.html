@@ -9,11 +9,11 @@
     {% block content %}
 
     <p>Email: {{user.email}}</p>
-    <nav>
-    <ul>
-      <li><a href="/userpage">Home</a></li>
-    </ul>
-  </nav>
+        <nav>
+            <ul>
+                <li><a href="/userpage">Home</a></li>
+            </ul>
+        </nav>
         <form method="POST" action="/edit_user" data>
             {% csrf_token %}
             <label for="name">Name</label>
@@ -39,7 +39,7 @@
                     {% endif %}
                 </select><br>
 
-                <input type="hidden" name="email" value={{ user.email }}>
+            <input type="hidden" name="email" value={{ user.email }}>
             <button type="submit">submit</button>
         </form>
         {% if messages %}

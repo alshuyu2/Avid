@@ -25,24 +25,34 @@ body {
 </style>
 </head>
 <body>
+<form method="POST" action="/exercise_add" data>
+    {% csrf_token %}
+    <div class="header">
+        {% for ex in exercises %}
+            {% if exercise in ex.name %}
+                <h1>{{ ex.name }}</h1>
+                <!--add picture-->
+                <p>Picture</p>
+                <p>Calories : {{ ex.calories }}</p>
+                <!-- for loop needed, not implemented for now-->
+                <p>Equipment needed : {{ ex.equipment }}</p>
+                <!-- for loop needed, not implemented for now-->
+                <p>Muscle : {{ ex.muscle }} </p>
+            {% endif %}
+        {% endfor %}
+    </div>
 
-<div class="header">
-  <h1>{{ exercise.name }}</h1>
-    <!--add picture-->
-    <p>Picture</p>
-    <p>Calories : {{ exercise.calories }}</p>
-    <!-- for loop needed, not implemented for now-->
-    <p>Equipment needed : {{ exercise.equipment }}</p>
-    <!-- for loop needed, not implemented for now-->
-    <p>Muscle : {{ exercise.muscle }} </p>
-
-</div>
-
-<div class="content">
-  <h1>Description</h1>
-  <p>{{ exercise.description }}</p>
-</div>
-
+    <div class="content">
+        <h1>Description</h1>
+        {% for ex in exercises %}
+            {% if exercise in ex.name %}
+                <p>{{ ex.description }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <input type="hidden" name="exercise" value={{ exercise }}>
+    <button type="submit">Add exercise!</button><p></p>
+</form>
 <form>
  <input type="button" value="Go back!" onclick="history.back()">
 </form>

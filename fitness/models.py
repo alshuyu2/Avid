@@ -29,6 +29,8 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
 
+    my_exercises = models.ManyToManyField('Exercise')
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -55,8 +57,8 @@ class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
     id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
-    equipment = models.ManyToManyField('Equipment')
-    muscle = models.ManyToManyField('Muscle')
+    equipment = models.CharField(max_length=50, null=True)
+    muscle = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=1000, null=True)
     # Undecided
     # image = models.ImageField()
