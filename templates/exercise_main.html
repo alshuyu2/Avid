@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <nav>
-        <ul>
-            <a href="/settings">Profile Settings</a><p></p>
-            <!--<a href="/exercise_add">Add New Workout</a><p></p>-->
-            <a href="/userpage">Home</a>
-        </ul>
+        <a href="/settings">Profile Settings</a><p></p>
+        <a href="/userpage">Home</a>
     </nav>
 
 </head>
@@ -26,7 +23,12 @@
     </form>
     <p>My Exercises:</p>
     {% for i in userexercises %}
-        <p>{{ i.name }}</p>
+        <p>
+            -----<br>
+            Exercise Name: {{ i.exercise.name }}<br>
+            Reps: {{ i.reps }}
+        </p>
     {% endfor %}
+            -----
 </body>
 </html>
