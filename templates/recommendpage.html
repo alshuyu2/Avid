@@ -33,25 +33,16 @@ body {
 </div>
   <main>
     <section style="display: flex; justify-content: space-between;">
-{#      <article style="width: 320px; padding: 20px; border: 1px solid #c9c9c9;">#}
-{#        <img src="https://acewebcontent.azureedge.net/exercise-library/large/14-1.jpg" alt="Preview of Exercise1" width=320px height=240px>#}
-{#        <h3>Bird-dog</h3>#}
-{#        <p>The bird dog is a simple core exercise that improves stability, encourages a neutral spine, and relieves low back pain.#}
-{#            This exercise pose uses the whole body to target and strengthen your core, hips, and back muscles.#}
-{#            It also helps promote proper posture and increase range of motion.</p>#}
-{#        <a href="#">More Details</a>#}
-{#      </article>#}
 
         {% for ex in exercise %}
-          <p>Testing</p>
           {{ ex.name }}
-            <p>{{ ex.id }}</p>
           {{ ex.calories }}
           {{ ex.equipment }}
           {{ ex.muscle }}
           {{ ex.description }}
+
             <article style="width: 320px; padding: 20px; border: 1px solid #c9c9c9;">
-        <img src="{{ ex.image }}" alt= "Preview of Exercise1" width=320px height=240px>
+        <img src={{ ex.image }} alt= "Preview of Exercise1" width=320px height=240px>
         <h3>{{ ex.name }}</h3>
         <p>{{ex.description}}</p>
         <a href="/exercise_card">More Details</a>

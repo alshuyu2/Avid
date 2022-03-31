@@ -8,7 +8,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
 from .forms import ImageForm
-from .models import Exercise
+from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle
 
 # Create your views here.
 
@@ -113,32 +113,69 @@ def image_upload_view(request):
 
 # display exercise detail in another page
 def exercise_main(request):
-    ex = list(Exercise.objects.values())
-    print(ex)
-    Userex = list(request.user.my_exercises.all())
-    return render(request=request, template_name='exercise_main.html', context={"exercises": ex,
-                                                                                "userexercises": Userex})
+    Exercises = list(Exercise.objects.all().values())
+    print(Exercises)
+    tmp = list(UserExercise.objects.all())
+    Userexercises = []
+    for i in tmp:
+        if i.user == request.user:
+            Userexercises.append(i)
+    print(Userexercises)
+    return render(request=request, template_name='exercise_main.html', context={"exercises": Exercises,
+                                                                                "userexercises": Userexercises})
 
 
 def exercise_add(request):
-    ex = list(Exercise.objects.values())
-    User = request.user
-    Userex = list(request.user.my_exercises.all())
-    if request.method == 'GET':
-        print(request.GET['exercise'])
-        return render(request=request, template_name='exercise_add.html', context={"exercise": request.GET['exercise'],
-                                                                                   "exercises": ex})
-    elif request.method == 'POST':
-        newExercise = request.POST['exercise']
-        for i in ex:
-            if newExercise in i['name']:
-                ex2 = list(Exercise.objects.all())
-                for j in ex2:
-                    if i['name'] == j.name:
-                        for k in User.my_exercises.all():
-                            if j == k:
-                                return render(request=request, template_name='exercise_main.html',
-                                              context={"exercises": ex})
-                        User.my_exercises.add(j)
-        return render(request=request, template_name='exercise_main.html', context={"exercises": ex,
-                                                                                    "userexercises": Userex})
+    Exercises = list(Exercise.objects.all())
+    con = 0
+
+    if request.method == 'POST':
+        form = UserExerciseForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('exercise_main')
+    for i in Exercises:
+        if request.GET['exercise'] in i.name:
+            con = i
+    return render(request=request, template_name="exercise_add.html", context={"exercise": con,
+                                                                               "exercises": Exercises})
+
+
+def meals(request):
+    Meals = list(Meal.objects.all())
+    tmp = list(UserMeal.objects.all())
+    Usermeals = []
+    for i in tmp:
+        if i.user == request.user:
+            Usermeals.append(i)
+    return render(request=request, template_name='meals.html', context={"Usermeals": Usermeals,
+                                                                        "Meals": Meals})
+
+
+def meals_add(request):
+    form = UserMealForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+    return redirect('meals')
+
+def catalog(request):
+    return render (request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
+
+def create_ex():
+    ex1 = Exercise.create_ex("Bird Dog", 100, "None", "None",
+                             media/images/birddog.jpg,
+                             "This is the description for birddog")
+    ex2 = Exercise.create_ex("Forward Lunge ", 200, "None", "None",
+                             media/images/forward_lunge.jpg,
+                             "This is the description for forward lunge")
+    ex3 = Exercise.create_ex("Ankle Flexion", 300, "None", "None",
+                             media/images/ankle_flexion.jpg,
+                             "This is the description for ankle flexion")
+
+#not done yet
+def exercise_card(request):
+
+    get_exercise = request.GET['exercise']
+    exercise = Exercise.objects.get(name=get_exercise.name)
+
+    return render (request, tempate_name = 'exercise_add.html', context={"exercise": exercise} )
