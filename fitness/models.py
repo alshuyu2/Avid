@@ -29,7 +29,9 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
 
-    my_exercises = models.ManyToManyField('Exercise')
+    # my_exercises = models.ManyToManyField('Exercise')
+
+    # my_meals = models.ManyToManyField('Meal')
 
     objects = CustomUserManager()
 
@@ -55,7 +57,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
     equipment = models.CharField(max_length=50, null=True)
     muscle = models.CharField(max_length=50, null=True)
@@ -63,6 +65,28 @@ class Exercise(models.Model):
     # Undecided
     # image = models.ImageField()
     # video = models.URLField()
+
+
+class UserExercise(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, null=True)
+    reps = models.IntegerField(null=True)
+
+
+class Meal(models.Model):
+    # user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=50, null=True)
+    calories = models.IntegerField(null=True)
+    protein = models.IntegerField(null=True)
+    fat = models.IntegerField(null=True)
+    carbs = models.IntegerField(null=True)
+    serving_size = models.CharField(max_length=50, null=True)
+
+
+class UserMeal(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
+    servings = models.IntegerField(null=True)
 
 
 class Equipment(models.Model):

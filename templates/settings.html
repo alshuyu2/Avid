@@ -10,9 +10,7 @@
 
     <p>Email: {{user.email}}</p>
         <nav>
-            <ul>
-                <li><a href="/userpage">Home</a></li>
-            </ul>
+            <a href="/userpage">Home</a>
         </nav>
         <form method="POST" action="/edit_user" data>
             {% csrf_token %}

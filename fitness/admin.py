@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Exercise, Equipment, Muscle
+from .models import Exercise, Equipment, Muscle, Meal, UserMeal, UserExercise
 
 from django.contrib.auth.admin import UserAdmin
 
@@ -12,9 +12,9 @@ class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
     model = MyUser
     list_display = ('email', 'name', 'is_staff', 'is_active')
-    list_filter = ('email', 'name', 'is_staff', 'is_active', 'my_exercises')
+    list_filter = ('email', 'name', 'is_staff', 'is_active')
     fieldsets = (
-        (None, {'fields': ('email', 'name', 'password', 'my_exercises')}),
+        (None, {'fields': ('email', 'name', 'password')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
@@ -33,8 +33,11 @@ class MyUserAdmin(UserAdmin):
 admin.site.register(MyUser, MyUserAdmin)
 # admin.site.register(User)
 admin.site.register(Exercise)
+admin.site.register(UserExercise)
 admin.site.register(Equipment)
 admin.site.register(Muscle)
+admin.site.register(Meal)
+admin.site.register(UserMeal)
 
 
 
