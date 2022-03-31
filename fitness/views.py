@@ -7,8 +7,8 @@ from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
-from .forms import ImageForm
-from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle
+from .forms import ImageForm, UserMealForm, UserExerciseForm
+from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle, Meal
 
 # Create your views here.
 
@@ -159,17 +159,21 @@ def meals_add(request):
     return redirect('meals')
 
 def catalog(request):
+    if Exercise.objects.count() < 1:
+        create_ex()
+    for ex in Exercise.objects.all():
+        print(ex.name)
     return render (request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
 
 def create_ex():
     ex1 = Exercise.create_ex("Bird Dog", 100, "None", "None",
-                             media/images/birddog.jpg,
+                             "media/images/birddog.jpg",
                              "This is the description for birddog")
     ex2 = Exercise.create_ex("Forward Lunge ", 200, "None", "None",
-                             media/images/forward_lunge.jpg,
+                             "media/images/forward_lunge.jpg",
                              "This is the description for forward lunge")
     ex3 = Exercise.create_ex("Ankle Flexion", 300, "None", "None",
-                             media/images/ankle_flexion.jpg,
+                             "media/images/ankle_flexion.jpg",
                              "This is the description for ankle flexion")
 
 #not done yet

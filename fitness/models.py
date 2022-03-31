@@ -66,7 +66,7 @@ class Exercise(models.Model):
     # video = models.URLField()
     @staticmethod
     def create_ex(name, calories, equipment, image, muscle, description):
-        temp = Exercise(name=name, id=id, calories=calories, equipment=equipment,
+        temp = Exercise(name=name, calories=calories, equipment=equipment,
                         muscle=muscle, image=image, description=description)
         temp.save()
 
