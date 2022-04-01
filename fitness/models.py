@@ -33,6 +33,9 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     # my_meals = models.ManyToManyField('Meal')
 
+    daily_calories_eaten = models.IntegerField(default=0, null=True)
+    daily_calories_burned = models.IntegerField(default=0, null=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
