@@ -135,6 +135,9 @@ footer {
             {% else %}
                 <li>Sex: Male</li>
             {% endif %}
+
+            <li>Calories burned: {{ user.daily_calories_burned }} // will do math later to make this correct based on metabolism</li>
+            <li>Calories consumed: {{ user.daily_calories_eaten }}</li>
         </ul>
     </article>
 </section>
