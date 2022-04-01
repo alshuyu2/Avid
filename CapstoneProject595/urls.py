@@ -41,6 +41,7 @@ urlpatterns = [
     path('exercise_add', views.exercise_add, name='exercise_add'),
     path('meals', views.meals, name='meals'),
     path('meals_add', views.meals_add, name='meals_add'),
+    path('catalog', views.catalog, name='catalog'),
 ]
 
 if settings.DEBUG:

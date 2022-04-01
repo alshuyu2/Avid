@@ -33,6 +33,9 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     # my_meals = models.ManyToManyField('Meal')
 
+    daily_calories_eaten = models.IntegerField(default=0, null=True)
+    daily_calories_burned = models.IntegerField(default=0, null=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -62,9 +65,13 @@ class Exercise(models.Model):
     equipment = models.CharField(max_length=50, null=True)
     muscle = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=1000, null=True)
-    # Undecided
-    # image = models.ImageField()
+    image = models.CharField(max_length=500, null=True)
     # video = models.URLField()
+    @staticmethod
+    def create_ex(name, calories, equipment, image, muscle, description):
+        temp = Exercise(name=name, calories=calories, equipment=equipment,
+                        muscle=muscle, image=image, description=description)
+        temp.save()
 
 
 class UserExercise(models.Model):

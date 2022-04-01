@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
+<title>Your Recommendation Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -33,9 +33,22 @@ body {
 </div>
   <main>
     <section style="display: flex; justify-content: space-between;">
-      <article style="width: 320px; padding: 20px; border: 1px solid #c9c9c9;">
+        <form method="GET" action="/exercise_add" data>
+
+            {% for ex in exercise %}
+                <article style="width: 320px; padding: 20px; border: 1px solid #c9c9c9;">
+                    <img src="{{ ex.image }}" alt= "Preview of Exercise" width=320px height=240px>
+                    <h3>{{ ex.name }}</h3>
+                    <p>{{ex.description}}</p>
+
+                    <button type="submit" name="exercise" value={{ ex.name }}>More Information</button>
+                </article>
+            {% endfor %}
+        </form>
+
+        <article style="width: 320px; padding: 20px; border: 1px solid #c9c9c9;">
         <img src="https://acewebcontent.azureedge.net/exercise-library/large/14-1.jpg" alt="Preview of Exercise1" width=320px height=240px>
-        <h3>Bird-dog</h3>
+        <h3>        </h3>
         <p>The bird dog is a simple core exercise that improves stability, encourages a neutral spine, and relieves low back pain.
             This exercise pose uses the whole body to target and strengthen your core, hips, and back muscles.
             It also helps promote proper posture and increase range of motion.</p>
@@ -54,10 +67,13 @@ body {
         <p>This exercise uses a stretch band to flex your ankle by pulling your toes toward you</p>
         <a href="#">More Details</a>
       </article>
+
     </section>
+
 
   </main>
   <footer>
+      <input type="button" value="Go back!" onclick="history.back()">
   </footer>
 </body>
 </html>
