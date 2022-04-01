@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>My Meals</p>
+        {% for meal in Usermeals %}
+            <p>
+                -----<br>
+                Meal Name: {{ meal.meal.name }}<br>
+                Servings: {{ meal.servings }}
+            </p>
+        {% endfor %}
+                -----
+    <form method="POST" action="/meals_add" data>
+        {% csrf_token %}
+        <p>Add a meal</p>
+        <select id="meal" name="meal">
+            <option value="choose">Choose a Meal</option>
+            {% for i in Meals %}
+                <option value={{ i.id }}>{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="serving_size">Servings: </label>
+            <input type="number" id="serving_size" name="servings" min="0" max="10">
+        <input type="hidden" name="user" value={{ user.id }}>
+        <button type="submit">Add Meal</button>
+    </form>
+    <nav>
+        <a href="/userpage">Home</a>
+    </nav>
+</body>
+</html>

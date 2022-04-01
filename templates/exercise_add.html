@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Add Exercise</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+<form method="POST" action="/exercise_add" data>
+    {% csrf_token %}
+    <div class="header">
+        {% for ex in exercises %}
+            {% if exercise.name == ex.name %}
+                <h1>{{ ex.name }}</h1>
+                <!--add picture-->
+                <p>Picture</p>
+                <p>Calories : {{ ex.calories }}</p>
+                <!-- for loop needed, not implemented for now-->
+                <p>Equipment needed : {{ ex.equipment }}</p>
+                <!-- for loop needed, not implemented for now-->
+                <p>Muscle : {{ ex.muscle }} </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="content">
+        <h1>Description</h1>
+        {% for ex in exercises %}
+            {% if exercise.name in ex.name %}
+                <p>{{ ex.description }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <input type="hidden" name="user" value={{ user.id }}>
+    <input type="hidden" name="exercise" value={{ exercise.id }}>
+    <label for="reps">Reps: </label>
+        <input type="number" id="reps" name="reps" min="0" max="1000">
+    <button type="submit">Add exercise!</button><p></p>
+</form>
+<form>
+    <input type="button" value="Go back!" onclick="history.back()">
+</form>
+
+</body>
+</html>

@@ -7,7 +7,8 @@ from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
-from .forms import ImageForm
+from .forms import ImageForm, UserMealForm, UserExerciseForm
+from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle, Meal
 
 # Create your views here.
 
@@ -97,3 +98,82 @@ def image_upload_view(request):
     else:
         form = ImageForm()
     return render(request, 'index.html', {'form': form})
+
+# unfinished
+
+# class RoutinePage(View):
+#     def get(self, request):
+#         if request.session.get("username"):
+#             return render(request, "routine.html")
+#         return render(request, 'registration/login.html')
+#
+#     def post(self, request):
+#         name = request.Post['name']
+
+
+# display exercise detail in another page
+def exercise_main(request):
+    Exercises = list(Exercise.objects.all().values())
+    print(Exercises)
+    tmp = list(UserExercise.objects.all())
+    Userexercises = []
+    for i in tmp:
+        if i.user == request.user:
+            Userexercises.append(i)
+    print(Userexercises)
+    return render(request=request, template_name='exercise_main.html', context={"exercises": Exercises,
+                                                                                "userexercises": Userexercises})
+
+
+def exercise_add(request):
+    Exercises = list(Exercise.objects.all())
+    con = 0
+
+    if request.method == 'POST':
+        form = UserExerciseForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('exercise_main')
+    for i in Exercises:
+        if request.GET['exercise'] in i.name:
+            con = i
+    return render(request=request, template_name="exercise_add.html", context={"exercise": con,
+                                                                               "exercises": Exercises})
+
+
+def meals(request):
+    Meals = list(Meal.objects.all())
+    tmp = list(UserMeal.objects.all())
+    Usermeals = []
+    for i in tmp:
+        if i.user == request.user:
+            Usermeals.append(i)
+    return render(request=request, template_name='meals.html', context={"Usermeals": Usermeals,
+                                                                        "Meals": Meals})
+
+
+def meals_add(request):
+    form = UserMealForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+    return redirect('meals')
+
+
+def catalog(request):
+    if Exercise.objects.count() < 1:
+        create_ex()
+    for ex in Exercise.objects.all():
+        print(ex.name)
+    return render(request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
+
+
+def create_ex():
+    ex1 = Exercise.create_ex("Bird Dog", 100, "None", "None",
+                             "media/images/birddog.jpg",
+                             "This is the description for birddog")
+    ex2 = Exercise.create_ex("Forward Lunge ", 200, "None", "None",
+                             "media/images/forward_lunge.jpg",
+                             "This is the description for forward lunge")
+    ex3 = Exercise.create_ex("Ankle Flexion", 300, "None", "None",
+                             "media/images/ankle_flexion.jpg",
+                             "This is the description for ankle flexion")

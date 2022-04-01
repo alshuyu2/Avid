@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Exercises</title>
+    <nav>
+        <a href="/settings">Profile Settings</a><p></p>
+        <a href="/userpage">Home</a>
+        <a href="/catalog">Catalog</a>
+    </nav>
+
+</head>
+<body>
+    <form method="GET" action="/exercise_add" data>
+        <p>Add a workout: </p>
+        <select id="Exercise" name="exercise">
+            <option value="choose">Choose an Exercise</option>
+            {% for exercise in exercises %}
+                <option value={{ exercise.name }}>{{ exercise.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="email" value={{ user.email }}>
+        <button type="submit">Select</button>
+    </form>
+    <p>My Exercises:</p>
+    {% for i in userexercises %}
+        <p>
+            -----<br>
+            Exercise Name: {{ i.exercise.name }}<br>
+            Reps: {{ i.reps }}
+        </p>
+    {% endfor %}
+            -----
+</body>
+</html>

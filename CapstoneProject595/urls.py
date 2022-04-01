@@ -37,6 +37,11 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('edit_user', views.edit_user, name='edit_user'),
     path('upload/', views.image_upload_view, name='upload'),
+    path('exercise_main', views.exercise_main, name='exercise_main'),
+    path('exercise_add', views.exercise_add, name='exercise_add'),
+    path('meals', views.meals, name='meals'),
+    path('meals_add', views.meals_add, name='meals_add'),
+    path('catalog', views.catalog, name='catalog'),
 ]
 
 if settings.DEBUG:

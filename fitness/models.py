@@ -29,6 +29,13 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
 
+    # my_exercises = models.ManyToManyField('Exercise')
+
+    # my_meals = models.ManyToManyField('Meal')
+
+    daily_calories_eaten = models.IntegerField(default=0, null=True)
+    daily_calories_burned = models.IntegerField(default=0, null=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -53,14 +60,40 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
-    equipment = models.ManyToManyField('Equipment')
-    muscle = models.ManyToManyField('Muscle')
+    equipment = models.CharField(max_length=50, null=True)
+    muscle = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=1000, null=True)
-    # Undecided
-    # image = models.ImageField()
+    image = models.CharField(max_length=500, null=True)
     # video = models.URLField()
+    @staticmethod
+    def create_ex(name, calories, equipment, image, muscle, description):
+        temp = Exercise(name=name, calories=calories, equipment=equipment,
+                        muscle=muscle, image=image, description=description)
+        temp.save()
+
+
+class UserExercise(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, null=True)
+    reps = models.IntegerField(null=True)
+
+
+class Meal(models.Model):
+    # user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=50, null=True)
+    calories = models.IntegerField(null=True)
+    protein = models.IntegerField(null=True)
+    fat = models.IntegerField(null=True)
+    carbs = models.IntegerField(null=True)
+    serving_size = models.CharField(max_length=50, null=True)
+
+
+class UserMeal(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
+    servings = models.IntegerField(null=True)
 
 
 class Equipment(models.Model):
