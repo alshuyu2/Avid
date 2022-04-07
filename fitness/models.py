@@ -80,22 +80,6 @@ class UserExercise(models.Model):
     reps = models.IntegerField(null=True)
 
 
-class Meal(models.Model):
-    # user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=50, null=True)
-    calories = models.IntegerField(null=True)
-    protein = models.IntegerField(null=True)
-    fat = models.IntegerField(null=True)
-    carbs = models.IntegerField(null=True)
-    serving_size = models.CharField(max_length=50, null=True)
-
-
-class UserMeal(models.Model):
-    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
-    servings = models.IntegerField(null=True)
-
-
 class Equipment(models.Model):
     name = models.CharField(max_length=50, null=True)
 
