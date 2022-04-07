@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Exercise, Equipment, Muscle, Meal, UserMeal, UserExercise
-
+from .models import Exercise, Equipment, Muscle, UserExercise
+from nutrition.models import Meal, UserMeal
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import MyUserCreationForm, MyUserChangeForm

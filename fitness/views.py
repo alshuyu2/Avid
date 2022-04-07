@@ -7,8 +7,8 @@ from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
-from .forms import ImageForm, UserMealForm, UserExerciseForm
-from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle, Meal
+from .forms import ImageForm, UserExerciseForm
+from .models import Exercise, UserExercise, Equipment, Muscle
 
 # Create your views here.
 
