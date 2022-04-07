@@ -73,7 +73,7 @@ class Exercise(models.Model):
                         muscle=muscle, image=image, description=description)
         temp.save()
 
-
+# allows personalization and security to excercise and meals
 class UserExercise(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, null=True)
