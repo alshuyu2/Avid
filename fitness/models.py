@@ -29,13 +29,6 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
 
-    # my_exercises = models.ManyToManyField('Exercise')
-
-    # my_meals = models.ManyToManyField('Meal')
-
-    daily_calories_eaten = models.IntegerField(default=0, null=True)
-    daily_calories_burned = models.IntegerField(default=0, null=True)
-
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -80,22 +73,6 @@ class UserExercise(models.Model):
     reps = models.IntegerField(null=True)
 
 
-class Meal(models.Model):
-    # user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=50, null=True)
-    calories = models.IntegerField(null=True)
-    protein = models.IntegerField(null=True)
-    fat = models.IntegerField(null=True)
-    carbs = models.IntegerField(null=True)
-    serving_size = models.CharField(max_length=50, null=True)
-
-
-class UserMeal(models.Model):
-    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
-    servings = models.IntegerField(null=True)
-
-
 class Equipment(models.Model):
     name = models.CharField(max_length=50, null=True)
 
@@ -120,14 +97,12 @@ class Weight(models.Model):
     def __str__(self):
         return self.name
 
-
 class Date(models.Model):
 
     name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
-
 
 class Image(models.Model):
     title = models.CharField(max_length=200)

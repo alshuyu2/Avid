@@ -7,8 +7,8 @@ from django.contrib import messages, auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
-from .forms import ImageForm, UserMealForm, UserExerciseForm
-from .models import Exercise, UserExercise, UserMeal, Equipment, Muscle, Meal
+from .forms import ImageForm, UserExerciseForm
+from .models import Exercise, UserExercise, Equipment, Muscle
 
 # Create your views here.
 
@@ -140,23 +140,6 @@ def exercise_add(request):
     return render(request=request, template_name="exercise_add.html", context={"exercise": con,
                                                                                "exercises": Exercises})
 
-
-def meals(request):
-    Meals = list(Meal.objects.all())
-    tmp = list(UserMeal.objects.all())
-    Usermeals = []
-    for i in tmp:
-        if i.user == request.user:
-            Usermeals.append(i)
-    return render(request=request, template_name='meals.html', context={"Usermeals": Usermeals,
-                                                                        "Meals": Meals})
-
-
-def meals_add(request):
-    form = UserMealForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
-    return redirect('meals')
 
 
 def catalog(request):
