@@ -29,13 +29,6 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
 
-    # my_exercises = models.ManyToManyField('Exercise')
-
-    # my_meals = models.ManyToManyField('Meal')
-
-    daily_calories_eaten = models.IntegerField(default=0, null=True)
-    daily_calories_burned = models.IntegerField(default=0, null=True)
-
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -104,13 +97,6 @@ class Weight(models.Model):
     def __str__(self):
         return self.name
 
-
-class Date(models.Model):
-
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
 
 
 class Image(models.Model):
