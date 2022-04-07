@@ -5,7 +5,7 @@ from nutrition.models import Meal
 
 #This will create a food item that will be saved in the data base
 def single_nutrition(apps, schema_editor):
-    food_ex = Meal(name='Test', calories=600, protein=60, carbs=0, serving_size=1, serving_unit="Egg")
+    food_ex = Meal(name='Test', calories=600, protein=60, carbs=0, fat=10, serving_size=1, serving_unit="Egg")
     food_ex.save()
 
 
