@@ -1,18 +1,13 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 from .managers import CustomUserManager
-from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
-    # username = None
     email = models.EmailField(_('email address'), unique=True)
 
     name = models.CharField(_('name'), max_length=30, blank=True)
@@ -40,12 +35,6 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     def get_name(self):
         return self.name
-
-    # name = models.CharField(max_length=60)
-    # height_in_inches = models.IntegerField()
-    # weight_in_pounds = models.IntegerField()
-    # age = models.IntegerField()
-    # sex = models.BooleanField()
 
     def __str__(self):
         return self.email
