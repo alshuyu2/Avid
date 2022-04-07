@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from nutrition.models import Meal, UserMeal
 from .forms import UserMealForm
 from .models import UserMeal, Meal
+
+
 # Create your views here.
 def meals(request):
     Meals = list(Meal.objects.all())
