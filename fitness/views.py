@@ -69,6 +69,10 @@ def about(request):
     return render(request=request, template_name='about.html')
 
 
+def weightgraph(request):
+
+    return render(request=request, template_name='weightgraph.html')
+
 def edit_user(request):
     User = request.user
     if request.method == 'POST':
