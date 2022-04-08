@@ -141,22 +141,6 @@ def exercise_add(request):
                                                                                "exercises": Exercises})
 
 
-
 def catalog(request):
-    if Exercise.objects.count() < 1:
-        create_ex()
-    for ex in Exercise.objects.all():
-        print(ex.name)
     return render(request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
 
-
-def create_ex():
-    ex1 = Exercise.create_ex("Bird Dog", 100, "None", "None",
-                             "media/images/birddog.jpg",
-                             "This is the description for birddog")
-    ex2 = Exercise.create_ex("Forward Lunge ", 200, "None", "None",
-                             "media/images/forward_lunge.jpg",
-                             "This is the description for forward lunge")
-    ex3 = Exercise.create_ex("Ankle Flexion", 300, "None", "None",
-                             "media/images/ankle_flexion.jpg",
-                             "This is the description for ankle flexion")
