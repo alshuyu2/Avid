@@ -3,9 +3,6 @@ from django.db import models
 from users.models import MyUser
 
 
-
-
-
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
     # id = models.IntegerField(primary_key=True)
@@ -15,11 +12,13 @@ class Exercise(models.Model):
     description = models.CharField(max_length=1000, null=True)
     image = models.CharField(max_length=500, null=True)
     # video = models.URLField()
+
     @staticmethod
     def create_ex(name, calories, equipment, image, muscle, description):
         temp = Exercise(name=name, calories=calories, equipment=equipment,
                         muscle=muscle, image=image, description=description)
         temp.save()
+
 
 # allows personalization and security to excercise and meals
 class UserExercise(models.Model):
