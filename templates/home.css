@@ -1,0 +1,98 @@
+*
+{	padding : 0;
+	banner : 0;
+}
+
+body {
+        margin:0;
+	    padding:0;
+        font-family: 'Raleway',sans-serif;
+    	background: #0a53be;
+        background: rgb(27, 23, 82) linear-gradient(90deg, rgba(27, 23, 82, 1) 0%, rgba(85, 85, 129, 1) 100%);
+        color: #ffffff;
+    }
+
+    .container .navbar{
+	color:#aaa;
+	font-size: 1.2em;
+    }
+
+	.container{
+	height: 100vh;
+	width: 100%;
+	background-position: top;
+	background-size:cover;
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+	.container.navbar{
+	margin-top:4%;
+}
+	.container .navbar-brand{
+	color: #fff;
+	font-size:1.8em;
+	font-weight: 700;
+	margin-left: 10%;
+}
+	.container. .nav{
+	margin-right:10%;
+}
+
+	.container .nav .li a{
+	color:#aaa;
+	font-size: 1.2em;
+}
+
+	.container. .nav info{
+	color:#aaa;
+	font-size: 1.2em;
+}
+	.container. .info{
+	margin-top:15%;
+	transform: translateY(-15%);
+}
+	.container. .info h1{
+	font-size: 2.5em;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 2px;
+}
+	.container. .info p{
+	font-size: 2em;
+	font-weight: 500;
+	color: #aaa;
+	letter-spacing: 2px;
+}
+	.container .info a{
+	margin-left:50%;
+	transform: translateX(-50%);
+	color: #fff;
+	 background: transparent;
+	padding:10px 20px;
+	font-size: 2em;
+	font-weight: 500;
+}
+
+    .container2 {
+
+
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../media/images/pic.img");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+  .container2 .txt {
+            position: absolute;
+            top: 300px;
+            left: 700px;
+        }
+
+

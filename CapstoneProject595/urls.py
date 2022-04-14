@@ -36,6 +36,7 @@ urlpatterns = [
     path('userpage/', views.userpage, name='userpage'),
     path('settings', views.settings, name='settings'),
     path('about', views.about, name='about'),
+    path('weightgraph', views.weightgraph, name='weightgraph'),
     path('edit_user', views.edit_user, name='edit_user'),
     path('upload/', views.image_upload_view, name='upload'),
     path('exercise_main', views.exercise_main, name='exercise_main'),
