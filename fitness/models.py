@@ -1,43 +1,9 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import User
-
-from .managers import CustomUserManager
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.utils.translation import gettext_lazy as _
+from users.models import MyUser
 
 
-class MyUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(_('email address'), unique=True)
 
-    name = models.CharField(_('name'), max_length=30, blank=True)
-
-    is_staff = models.BooleanField(_('staff'), default=False)
-    is_active = models.BooleanField(_('active'), default=True)
-    sex = models.BooleanField(default=False)
-
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
-
-    height_in_inches = models.IntegerField(default=0, null=True)
-    weight_in_pounds = models.IntegerField(default=0, null=True)
-    age = models.IntegerField(default=0, null=True)
-
-    profile_picture = models.ImageField(default='media/images/Blank_profile.jpg', upload_to='profile_pics')
-
-    objects = CustomUserManager()
-
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
-
-    class Meta:
-        verbose_name = _('myUser')
-        verbose_name_plural = _('myUsers')
-
-    def get_name(self):
-        return self.name
-
-    def __str__(self):
-        return self.email
 
 
 class Exercise(models.Model):
