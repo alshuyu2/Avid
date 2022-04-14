@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nutrition',
     'fitness',
     'crispy_forms',
     'bootstrap4',
+    'users',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,7 +132,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'fitness.MyUser'
+AUTH_USER_MODEL = 'users.MyUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from fitness import views
+from nutrition import views as nutrition_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -39,8 +40,8 @@ urlpatterns = [
     path('upload/', views.image_upload_view, name='upload'),
     path('exercise_main', views.exercise_main, name='exercise_main'),
     path('exercise_add', views.exercise_add, name='exercise_add'),
-    path('meals', views.meals, name='meals'),
-    path('meals_add', views.meals_add, name='meals_add'),
+    path('meals', nutrition_views.meals, name='meals'),
+    path('meals_add', nutrition_views.meals_add, name='meals_add'),
     path('catalog', views.catalog, name='catalog'),
 ]
 

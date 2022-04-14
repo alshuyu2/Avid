@@ -1,8 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import MyUser
+from .models import MyUser, UserExercise
 from .models import Image
-from .models import UserMeal, Meal, UserExercise
 
 
 class MyUserCreationForm(UserCreationForm):
@@ -40,21 +39,6 @@ class MyUserChangeForm(UserChangeForm):
             return user
 
         # ('name', 'height_in_inches', "weight_in_pounds", 'age', 'sex')
-
-
-class UserMealForm(forms.ModelForm):
-    # user = forms.ModelChoiceField(queryset=MyUser.objects.all())
-    # meal = forms.ModelChoiceField(queryset=Meal.objects.all())
-    # servings = forms.IntegerField(required=True)
-
-    class Meta:
-        model = UserMeal
-        fields = ('user', 'meal', 'servings')
-
-        def save(self, commit=True):
-            newMeal = UserMeal(user=self.cleaned_data['user'], meal=self.cleaned_data['meal'],
-                               servings=self.cleaned_data['serving_size'])
-            newMeal.save()
 
 
 class UserExerciseForm(forms.ModelForm):
