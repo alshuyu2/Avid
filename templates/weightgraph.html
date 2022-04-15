@@ -36,11 +36,44 @@
     }]
   };
 
-  const config = {
+/*  const config = {
     type: 'line',
     data: data,
-    options: {}
+    options: {
+      scales: {
+          y: {
+              _suggestedMin : 0,
+              _suggestedMax : 200,
+          }
+      }
+    }
   };
+*/
+// <block:config:0>
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Suggested Min and Max Settings'
+      }
+    },
+    scales: {
+      y: {
+        // the data minimum used for determining the ticks is Math.min(dataMin, suggestedMin)
+        suggestedMin: 30,
+
+        // the data maximum used for determining the ticks is Math.max(dataMax, suggestedMax)
+        suggestedMax: 200,
+      }
+    }
+  },
+};
+// </block:config>
+
 </script>
 
     <script>
