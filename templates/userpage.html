@@ -1,154 +1,401 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}UserPage{% endblock %}
+
+{% block content %}
+
 <html lang="en">
 <head>
 <title>Avid User Page</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-#grad1 {
-  height: 40px;
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to bottom right, white, rgba(83, 116, 255, 1), rgba(255, 83, 83, 1), rgba(210, 83, 255, 1), white);
-}
-/* Style the header */
-header {
-  background-color: #F00;
-  padding: 1px;
-  text-align: center;
-  font-size: 10px;
-  color: white;
-}
+    <link rel="stylesheet" type = "text/css" href="userpage.css" media = "screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 20%;
-  /*height: 400px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-article {
-  float: left;
-  padding: 20px;
-  width: 80%;
-  background-color: #f1f1f1;
-  /*height: 400px; /* only for demonstration, should be removed */
-}
-
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: left;
-  color: white;
-}
-
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
-</head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    </head>
 <body>
+<style>
 
-<header id = "grad1">
-  <h2 style = "color: black">Avid: Compete for a better You</h2>
-</header>
+img {
+    width: 100%;
+    height: 100%
+}
 
-<section>
-    <nav>
-        <ul>
-            <li><a href="/settings">Profile Settings</a></li><p></p>
-            <li><a href="/exercise_main">Track Workouts</a></li><p></p>
-            <li><a href="/meals">Track Meals</a></li><p></p>
-            <li><a href="/logout">Logout</a></li><p></p>
-        </ul>
-    </nav>
+.bg-black {
+    background: #000
+}
 
-    <article>
-        <h1>Welcome, {{user.name}}!</h1>
-        <div class="content-section">
-            <div class="media">
-                <img class="rounded-circle" src="/{{ user.profile_picture }}" width="100" height="100">
+.skill-block {
+    width: 30%
+}
+
+@media (min-width: 991px) and (max-width:1200px) {
+    .skill-block {
+        padding: 32px !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .skill-block {
+        padding: 56px !important
+    }
+}
+
+
+.container .sidebar {
+    position: page;
+    background-color: transparent;
+    height: 100vh;
+    width: 90px;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+  font-size: 30px;
+  font-weight: 70;
+  position: absolute;
+  left: 16px;
+  line-height: 60px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s linear;
+
+}
+
+.sidebar li:nth-child(1) {
+    padding: 30px 0px
+}
+
+.sidebar li:hover:nth-child(1) {
+    padding: 30px 0px;
+    background-color: transparent;
+
+}
+
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.5s;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column
+}
+
+.sidebar li span:nth-child(1) {
+    font-size: 20px
+}
+
+.sidebar li span:nth-child(2) {
+    font-size: 10px
+}
+
+.sidebar li:hover {
+    background-color: #f2f2f2;
+    padding: 12px
+}
+
+
+
+body{
+    margin-top:20px;
+    backgroundColor:#eee;
+}
+.home-5-bg {
+    background: #1E90FF;
+    position: relative;
+    background-size: cover;
+    height: 50vh;
+    background-position: center center;
+}
+
+.section {
+    position: relative;
+}
+
+.home-5-content {
+  z-index: 1;
+  position: relative;
+}
+
+.bg-overlay {
+    background-color: #000;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.home-center {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.home-desc-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.home-5-content {
+    z-index: 1;
+    position: relative;
+}
+
+.text-white-70 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.f-15 {
+    font-size: 15px;
+}
+
+.home-5-bg #particles-js {
+    z-index: 1!important;
+position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+</style>
+{#<header id = "grad1">#}
+{#  <h2 style = "color: black">Avid: Compete for a better You</h2>#}
+{#</header>#}
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<section class="section home-5-bg" id="home">
+    <div id="particles-js"></div>
+    <div class="bg-overlay"></div>
+    <div class="home-center">
+        <div class="home-desc-center">
+            <div class="container">
+                <div class="justify-content-center row">
+                    <div class="col-lg-7">
+                        <div class="mt-40 text-center home-5-content">
+                            <div class="home-icon mb-4"><i class="mdi mdi-pinwheel mdi-spin text-white h1"></i></div>
+                            <h1 class="text-white font-weight-normal home-5-title mb-0">AVID</h1>
+                            <p class="text-white-70 mt-4 f-15 mb-0">FITNESS ASSISTANT</p>
+                            <div class="mt-5">
+                                <input class="btn btn-default" type="button" value="Get started">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <p>About you:</p>
-        <ul>
-            {% if user.height_in_inches is 0 %}
-                <li>Height: (unknown, please enter in your Profile Settings)</li>
-            {% else %}
-                <li>Height: {{ user.height_in_inches }} inches</li>
-            {% endif %}
-
-            {% if user.weight_in_pounds is 0 %}
-                <li>Weight: (unknown, please enter in your Profile Settings)</li>
-            {% else %}
-                <li>Weight: {{ user.weight_in_pounds }} lbs</li>
-            {% endif %}
-
-            {% if user.age is 0 %}
-                <li>Age: (unknown, please enter in your Profile Settings)</li>
-            {% else %}
-                <li>Age: {{ user.age }}</li>
-            {% endif %}
-
-            {% if user.sex is False %}
-                <li>Sex: Female</li>
-            {% else %}
-                <li>Sex: Male</li>
-            {% endif %}
-
-            <li>Calories burned: {{ user.daily_calories_burned }} // will do math later to make this correct based on metabolism</li>
-            <li>Calories consumed: {{ user.daily_calories_eaten }}</li>
-        </ul>
-    </article>
+    </div>
 </section>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 20,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.22,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true,
+  "config_demo": {
+    "hide_card": false,
+    "background_color": "#b61924",
+    "background_image": "",
+    "background_position": "50% 50%",
+    "background_repeat": "no-repeat",
+    "background_size": "cover"
+  }
+});</script>
+{#<section>#}
+{#    <nav >#}
+{#        <ul>#}
+{#            <li><a href="/settings">Profile Settings</a></li><p></p>#}
+{#            <li><a href="/exercise_main">Track Workouts</a></li><p></p>#}
+{#            <li><a href="#">Track Meals</a></li><p></p>#}
+{#            <li><a href="/logout">Logout</a></li><p></p>#}
+{#        </ul>#}
+{#    </nav>#}
 
-<footer>
-    <a href="/about">About</a><p></p>
+
+<div class="container mt-5 mb-5">
+
+<div class="wrapper d-flex">
+    <div class="sidebar">
+        <ul>
+            <li><h4><a href="/settings">Profile Settings</h4></a></li>
+            <li><a href="/exercise_main">Track Workouts</a></li>
+            <li><a href="/meals">Track Meals</a></li><p></p>
+            <li><a href="/logout">Logout</a></li><p></p>
+             <li> <a href="/about">About</a><p></p></li><p></p>
+             <a href="/about">More</a><p></p>
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a>
-</footer>
-</body>
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+<div id="root"></div>
+
+    <div class="row no-gutters">
+        <div class="col-md-4 col-lg-4"> <img class="rounded-circle" src="/{{ user.profile_picture }}" width="500" height="500"></div>
+        <div class="col-md-8 col-lg-8">
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between align-items-center p-5 bg-dark text-white">
+                    <h3 class="display-5">Welcome, {{user.name}}!</h3><i class="fa fa-facebook"></i><i class="fa fa-google"></i><i class="fa fa-youtube-play"></i><i class="fa fa-dribbble"></i><i class="fa fa-linkedin"></i>
+                </div>
+                <div class="p-3 bg-black text-white">
+                    <h4>About you:</h4>
+                </div>
+                <div class="d-flex flex-row text-white">
+                    <div class="p-4 bg-primary text-center skill-block">
+
+                        <h4>Height:</h4>
+                        <h6>  {% if user.height_in_inches is 0 %}
+                <li>(unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li> {{ user.height_in_inches }} inches</li>
+            {% endif %}</h6>
+                    </div>
+                    <div class="p-3 bg-success text-center skill-block">
+
+                        <h4>Weight:</h4>
+                        <h6> {% if user.weight_in_pounds is 0 %}
+                <li>(unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li> {{ user.weight_in_pounds }} lbs</li>
+            {% endif %}</h6>
+                    </div>
+
+                    <div class="p-3 bg-warning text-center skill-block">
+                        <h4>Age:</h4>
+                        <h6>{% if user.age is 0 %}
+                <li>(unknown, please enter in your Profile Settings)</li>
+            {% else %}
+                <li>{{ user.age }}</li>
+            {% endif %}</h6>
+                    </div>
+                    <div class="p-3 bg-danger text-center skill-block">
+                        <h4>Sex:</h4>
+                        <h6>{% if user.sex is False %}
+                <li> Female</li>
+            {% else %}
+                <li>Male</li>
+            {% endif %}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
 {% if messages %}
     <ul>
    {% for message in messages %}
@@ -156,4 +403,6 @@ footer {
    {% endfor %}
 </ul>
 {% endif %}
+{% endblock %}
+</body>
 </html>
