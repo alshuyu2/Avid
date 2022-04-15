@@ -5,7 +5,6 @@ from users.models import MyUser
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
-    # id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
     equipment = models.CharField(max_length=50, null=True)
     muscle = models.CharField(max_length=50, null=True)
