@@ -1,7 +1,21 @@
 from fitness.models import Exercise
 from nutrition.models import Meal
-import os
-from django.core.wsgi import get_wsgi_application
+from django.contrib.auth import get_user_model
+
+userModel = get_user_model()
+
+list_of_users = [
+            ("Sam", "admin1@admin", "Sam"),
+            ("Xin", "admin2@admin", "Xin"),
+            ("Thomas", "admin3@admin", "Thomas"),
+            ("Syeda", "admin4@admin", "Syeda"),
+            ("Mohammed", "admin5@admin", "Mohammed")
+            ]
+for arg in list_of_users:
+    newUser = userModel.objects.create_user(name=arg[0], email=arg[1], password=arg[2])
+    newUser.is_superuser = True
+    newUser.is_staff = True
+    newUser.save()
 
 
 Exercise.create_ex("Barbell Squat", 0, "Squat Rack", "None", "Quadriceps", "The squat is a fundamental weight training "
