@@ -69,6 +69,10 @@ def about(request):
     return render(request=request, template_name='about.html')
 
 
+def weightgraph(request):
+
+    return render(request=request, template_name='weightgraph.html')
+
 def edit_user(request):
     User = request.user
     if request.method == 'POST':
@@ -113,6 +117,10 @@ def image_upload_view(request):
 
 # display exercise detail in another page
 def exercise_main(request):
+    #temp
+    if Exercise.objects.all().count() < 5:
+        create_ex()
+
     Exercises = list(Exercise.objects.all().values())
     print(Exercises)
     tmp = list(UserExercise.objects.all())
@@ -144,3 +152,24 @@ def exercise_add(request):
 def catalog(request):
     return render(request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
 
+
+# temp method
+def create_ex():
+    ex1 = Exercise.create_ex("Push-up", 100, "None", "None",
+                             "media/images/pushup.jpg",
+                             "This is the description for Push-up")
+    ex2 = Exercise.create_ex("Bicep Curl", 100, "None", "None",
+                             "media/images/bicepcurl.jpg",
+                             "This is the description for Bicep Curl")
+    ex3 = Exercise.create_ex("Cobra Exercise", 100, "None", "None",
+                             "media/images/cobra_exercise.jpg",
+                             "This is the description for Cobra Exercise")
+    ex4 = Exercise.create_ex("Chest Press", 100, "None", "None",
+                             "media/images/chest_press.jpg",
+                             "This is the description for Chest Press")
+    ex5 = Exercise.create_ex("Front Squat", 100, "None", "None",
+                             "media/images/front_squat.jpg",
+                             "This is the description for Front Squat")
+    ex6 = Exercise.create_ex("Bent Knee Push-up", 100, "None", "None",
+                             "media/images/bent_knee_pushup.jpg",
+                             "This is the description for Bent Knee Push-up")

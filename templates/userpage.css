@@ -1,0 +1,146 @@
+*
+{	padding : 0;
+	banner : 0;
+}
+
+img {
+    width: 100%;
+    height: 100%
+}
+
+.bg-black {
+    background: #000
+}
+
+.skill-block {
+    width: 30%
+}
+
+@media (min-width: 991px) and (max-width:1200px) {
+    .skill-block {
+        padding: 32px !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .skill-block {
+        padding: 56px !important
+    }
+}
+
+
+.container .sidebar {
+    position: page;
+    background-color: transparent;
+    height: 100vh;
+    width: 90px;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+  font-size: 30px;
+  font-weight: 70;
+  position: absolute;
+  left: 16px;
+  line-height: 60px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s linear;
+
+}
+
+.sidebar li:nth-child(1) {
+    padding: 30px 0px
+}
+
+.sidebar li:hover:nth-child(1) {
+    padding: 30px 0px;
+    background-color: transparent;
+
+}
+
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.5s;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column
+}
+
+.sidebar li span:nth-child(1) {
+    font-size: 20px
+}
+
+.sidebar li span:nth-child(2) {
+    font-size: 10px
+}
+
+.sidebar li:hover {
+    background-color: #f2f2f2;
+    padding: 12px
+}
+
+
+
+body{
+    margin-top:20px;
+    backgroundColor:#eee;
+}
+.home-5-bg {
+    background: #1E90FF;
+    position: relative;
+    background-size: cover;
+    height: 50vh;
+    background-position: center center;
+}
+
+.section {
+    position: relative;
+}
+
+.home-5-content {
+  z-index: 1;
+  position: relative;
+}
+
+.bg-overlay {
+    background-color: #000;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.home-center {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.home-desc-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.home-5-content {
+    z-index: 1;
+    position: relative;
+}
+
+.text-white-70 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.f-15 {
+    font-size: 15px;
+}
+
+.home-5-bg #particles-js {
+    z-index: 1!important;
+position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
