@@ -51,12 +51,14 @@ class Weight(models.Model):
     def __str__(self):
         return self.name
 
+
 class Date(models.Model):
 
     name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
+
 
 class Image(models.Model):
     title = models.CharField(max_length=200)
