@@ -36,4 +36,8 @@ class UserMeal(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
     servings = models.IntegerField()
+    calories = models.IntegerField(null=True)
+    protein = models.IntegerField(null=True)
+    fat = models.IntegerField(null=True)
+    carbs = models.IntegerField(null=True)
 

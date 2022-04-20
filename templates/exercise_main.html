@@ -66,7 +66,7 @@
 <body>
     <form autocomplete="off" method="GET" action="/exercise_add" data>
         <div class="dropdown">
-            <input onclick="myFunction()"type="text" placeholder="Search.." id="Exercise" name= "exercise" onkeyup="filterFunction()">
+            <input onclick="myFunction()"type="text" placeholder="Search..." id="Exercise" name= "exercise" onkeyup="filterFunction()">
             <div id="myDropdown" class="dropdown-content">
                 {% for exercise in exercises %}
                     <option onclick="clicked('{{ exercise.name }}')" value="{{ exercise.name }}">{{ exercise.name }}</option>
