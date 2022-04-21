@@ -1,4 +1,57 @@
+
 <!DOCTYPE html>
+<style>
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#Exercise {
+  box-sizing: border-box;
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#Exercise:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,25 +64,61 @@
 
 </head>
 <body>
-    <form method="GET" action="/exercise_add" data>
-        <p>Add a workout: </p>
-        <select id="Exercise" name="exercise">
-            <option value="choose">Choose an Exercise</option>
-            {% for exercise in exercises %}
-                <option value={{ exercise.name }}>{{ exercise.name }}</option>
-            {% endfor %}
-        </select>
-        <input type="hidden" name="email" value={{ user.email }}>
-        <button type="submit">Select</button>
+    <form autocomplete="off" method="GET" action="/exercise_add" data>
+        <div class="dropdown">
+            <input onclick="myFunction()"type="text" placeholder="Search..." id="Exercise" name= "exercise" onkeyup="filterFunction()">
+            <div id="myDropdown" class="dropdown-content">
+                {% for exercise in exercises %}
+                    <option onclick="clicked('{{ exercise.name }}')" value="{{ exercise.name }}">{{ exercise.name }}</option>
+                {% endfor %}
+            </div>
+        </div>
+    <input type="hidden" name="email" value={{ user.email }}>
+    <button type="submit">Select</button>
     </form>
+
+    <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function filterFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("Exercise");
+          filter = input.value.toUpperCase();
+          div = document.getElementById("myDropdown");
+          a = div.getElementsByTagName("option");
+          for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              a[i].style.display = "";
+            } else {
+              a[i].style.display = "none";
+            }
+          }
+        }
+
+        function clicked(name) {
+
+            var text;
+            text = document.getElementById("Exercise");
+            console.log(name);
+            text.value = name;
+
+        }
+    </script>
     <p>My Exercises:</p>
-    {% for i in userexercises %}
-        <p>
-            -----<br>
-            Exercise Name: {{ i.exercise.name }}<br>
-            Reps: {{ i.reps }}
-        </p>
-    {% endfor %}
-            -----
+    <section style="display: flex; flex-wrap: wrap">
+        {% for ex in userexercises %}
+                <article style="height: 250px; width: 320px; padding: 20px; border: 5px solid darkcyan;">
+                    <img src="{{ ex.exercise.image }}" alt= "Preview of Exercise" width=320px height=240px>
+                    <h3>{{ ex.exercise.name }}</h3>
+                    <p>Reps done: {{ ex.reps }}</p>
+                    <p>{{ex.exercise.description}}</p>
+                </article>
+        {% endfor %}
+    </section>
 </body>
 </html>

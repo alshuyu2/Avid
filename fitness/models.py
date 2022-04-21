@@ -5,7 +5,6 @@ from users.models import MyUser
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50, null=True)
-    # id = models.IntegerField(primary_key=True)
     calories = models.IntegerField(null=True)
     equipment = models.CharField(max_length=50, null=True)
     muscle = models.CharField(max_length=50, null=True)
@@ -51,12 +50,14 @@ class Weight(models.Model):
     def __str__(self):
         return self.name
 
+
 class Date(models.Model):
 
     name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
+
 
 class Image(models.Model):
     title = models.CharField(max_length=200)
