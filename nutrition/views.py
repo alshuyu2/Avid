@@ -17,6 +17,16 @@ def meals(request):
 
 
 def meals_add(request):
+    myPost = request.POST.copy()
+    Meals = list(Meal.objects.all())
+    for i in Meals:
+        if i.name == myPost['meal']:
+            myPost['meal'] = i.id
+            myPost['protein'] = i.protein*eval(myPost['servings'])
+            myPost['calories'] = i.calories*eval(myPost['servings'])
+            myPost['carbs'] = i.carbs*eval(myPost['servings'])
+            myPost['fat'] = i.fat*eval(myPost['servings'])
+            request.POST = myPost
     form = UserMealForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()

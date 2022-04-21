@@ -117,6 +117,7 @@ def image_upload_view(request):
 
 # display exercise detail in another page
 def exercise_main(request):
+
     Exercises = list(Exercise.objects.all().values())
     print(Exercises)
     tmp = list(UserExercise.objects.all())
@@ -139,12 +140,16 @@ def exercise_add(request):
             form.save()
         return redirect('exercise_main')
     for i in Exercises:
-        if request.GET['exercise'] in i.name:
+        if request.GET['exercise'] == i.name:
             con = i
     return render(request=request, template_name="exercise_add.html", context={"exercise": con,
                                                                                "exercises": Exercises})
 
 
 def catalog(request):
-    return render(request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
+    return render(request=request, template_name='recommendpage.html', context={"exercise": Exercise.objects.all()})
+
+
+def credits_(request):
+    return render(request=request, template_name='credits.html')
 

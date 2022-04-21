@@ -44,6 +44,7 @@ urlpatterns = [
     path('meals', nutrition_views.meals, name='meals'),
     path('meals_add', nutrition_views.meals_add, name='meals_add'),
     path('catalog', views.catalog, name='catalog'),
+    path('credits', views.credits_, name='credits'),
 ]
 
 if settings.DEBUG:
