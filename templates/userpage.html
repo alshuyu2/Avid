@@ -49,9 +49,9 @@ img {
 
 .container .sidebar {
     position: page;
-    background-color: transparent;
+    background-color: #113B5E;
     height: 100vh;
-    width: 90px;
+    width: 400px;
     z-index: 10;
     text-align: center;
     color: #fff;
@@ -81,7 +81,7 @@ img {
     cursor: pointer;
     transition: all 0.5s;
     letter-spacing: 1px;
-    display: flex;
+    display: block;
     flex-direction: column
 }
 
@@ -152,7 +152,7 @@ body{
 }
 
 .f-15 {
-    font-size: 15px;
+    font-size: 30px;
 }
 
 .home-5-bg #particles-js {
@@ -318,8 +318,8 @@ particlesJS("particles-js", {
 {#        </ul>#}
 {#    </nav>#}
 
-
 <div class="container mt-5 mb-5">
+
 
 <div class="wrapper d-flex">
     <div class="sidebar">
@@ -328,12 +328,11 @@ particlesJS("particles-js", {
             <li><a href="/exercise_main">Track Workouts</a></li>
             <li><a href="/meals">Track Meals</a></li><p></p>
             <li><a href="/logout">Logout</a></li><p></p>
-             <li> <a href="/about">About</a><p></p></li><p></p>
-             <a href="/about">More</a><p></p>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a>
-            </li>
+            <li> <a href="/about">About</a><p></p></li><p></p>
+            <a href="/about">More</a><p></p>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a></li>
         </ul>
         </div>
     </div>
@@ -342,11 +341,11 @@ particlesJS("particles-js", {
 <div id="root"></div>
 
     <div class="row no-gutters">
-        <div class="col-md-4 col-lg-4"> <img class="rounded-circle" src="/{{ user.profile_picture }}" width="500" height="500"></div>
+        <div class="col-md-4 col-lg-4"> </div>
         <div class="col-md-8 col-lg-8">
             <div class="d-flex flex-column">
                 <div class="d-flex flex-row justify-content-between align-items-center p-5 bg-dark text-white">
-                    <h3 class="display-5">Welcome, {{user.name}}!</h3><i class="fa fa-facebook"></i><i class="fa fa-google"></i><i class="fa fa-youtube-play"></i><i class="fa fa-dribbble"></i><i class="fa fa-linkedin"></i>
+                    <h3 class="display-5">Welcome, {{user.name}}!</h3>
                 </div>
                 <div class="p-3 bg-black text-white">
                     <h4>About you:</h4>
