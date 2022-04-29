@@ -112,9 +112,9 @@ toggle between hiding and showing the dropdown content */
     <p>My Exercises:</p>
     <section style="display: flex; flex-wrap: wrap">
         {% for ex in userexercises %}
-                <article style="height: 250px; width: 320px; padding: 10px; border: 5px solid darkcyan;">
+                <article style="height: 250px; width: 320px; padding: 20px; border: 5px solid darkcyan;">
                     <img src="{{ ex.exercise.image }}" alt= "Preview of Exercise" width=320px height=240px>
-                    <h2>{{ ex.exercise.name }}</h2>
+                    <h3>{{ ex.exercise.name }}</h3>
                     <p>Reps done: {{ ex.reps }}</p>
                     <p>{{ex.exercise.description}}</p>
                 </article>

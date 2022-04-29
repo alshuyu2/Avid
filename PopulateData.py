@@ -18,130 +18,130 @@ for arg in list_of_users:
     newUser.save()
 
 
-Exercise.create_ex("Barbell Squat", 0, "Squat Rack", '/media/images/barbelsquat.jpeg', "Quadriceps", "The squat is a fundamental weight training "
+Exercise.create_ex("Barbell Squat", 0, "Squat Rack", "barbelsquat.jpeg", "Quadriceps", "The squat is a fundamental weight training "
                                                                            "exercise for building strength, mass "
                                                                            "sports performance and long-term health.")
-Exercise.create_ex("Bench Press", 0, "Bench", '/media/images/benchpress.jpeg', "Chest", "The bench press is a fundamental barbell exercise, "
+Exercise.create_ex("Bench Press", 0, "Bench", "None", "Chest", "The bench press is a fundamental barbell exercise, "
                                                                "notoriously used for bragging rights and as a bench "
                                                                "mark of strength. It is an excellent upper-body "
                                                                "exercise primarily targeting the chest and shoulders "
                                                                "and is one of the great Olympic strength lifts for "
                                                                "developing upper body mass, strength and power.")
-Exercise.create_ex("Bent Over Row", 0, "Barbell", '/media/images/bentoverrow.jpeg', "Back", "The barbell bent over row is a fundamental exerise "
+Exercise.create_ex("Bent Over Row", 0, "Barbell", "None", "Back", "The barbell bent over row is a fundamental exerise "
                                                                   "that develops strong back muscles.")
-Exercise.create_ex("Clean and Jerk", 0, "Barbell", '/media/images/cleanandjerk.jpeg', "Quadriceps", "The clean and jerk is an advanced Olympic "
+Exercise.create_ex("Clean and Jerk", 0, "Barbell", "None", "Quadriceps", "The clean and jerk is an advanced Olympic "
                                                                          "lift and one of the most effective and all "
                                                                          "encompassing strength and performance "
                                                                          "exercises available.")
-Exercise.create_ex("Deadlift", 0, "Barbell", '/media/images/Deadlift.jpeg', "Back", "The barbell deadlift exercise is a highly recommend "
+Exercise.create_ex("Deadlift", 0, "Barbell", "None", "Back", "The barbell deadlift exercise is a highly recommend "
                                                              "weight training exercise for those wanting to build "
                                                              "muscle mass, strength and power. The deadliest movement "
                                                              "gives great bang for the buck and works the body from "
                                                              "head to toe.")
-Exercise.create_ex("Biceps Curl", 0, "Dumbell", '/media/images/bicepcurl.jpg', "Biceps", "Develop biceps size and strength with this basic "
+Exercise.create_ex("Biceps Curl", 0, "Dumbell", "None", "Biceps", "Develop biceps size and strength with this basic "
                                                                   "isolation exercise.")
-Exercise.create_ex("Farmers Walk", 0, "Dumbell", '/media/images/farmerswalk.jpeg', "Forearms", "The Farmer's Walk is an old school exercise that "
+Exercise.create_ex("Farmers Walk", 0, "Dumbell", "None", "Forearms", "The Farmer's Walk is an old school exercise that "
                                                                      "builds grip strength and endurance.")
-Exercise.create_ex("Dumbell Pullover", 0, '/media/images/dumbellpullover.webp', "None", "Chest", "The dumbbell pullover is a classic bodybuilding "
+Exercise.create_ex("Dumbell Pullover", 0, "Dumbell", "None", "Chest", "The dumbbell pullover is a classic bodybuilding "
                                                                       "exercise that targets the upper body with "
                                                                       "particular focus on the chest muscles.")
-Exercise.create_ex("Dumbell Shoulder Press", 0, '/media/images/dumbellshoulderpress.jpeg', "None", "Shoulders", "An essential isolation exercise for "
+Exercise.create_ex("Dumbell Shoulder Press", 0, "Dumbell", "None", "Shoulders", "An essential isolation exercise for "
                                                                                 "building shoulder size and strength "
                                                                                 "in bodybuilding and weight training.")
-Exercise.create_ex("Overhead Squat", 0, "Barbell", '/media/images/overheadsquat.jpeg', "Quadriceps", "The overhead squat is an advanced weight "
+Exercise.create_ex("Overhead Squat", 0, "Barbell", "None", "Quadriceps", "The overhead squat is an advanced weight "
                                                                          "training movement that is a true test of "
                                                                          "midline control and develops impressive "
                                                                          "athleticism, power and speed skills.")
-Exercise.create_ex("Hammer Curl", 0, "Dumbell", '/media/images/hammercurl.jpeg', "Biceps", "The dumbbell hammer curl is a basic weight training "
+Exercise.create_ex("Hammer Curl", 0, "Dumbell", "None", "Biceps", "The dumbbell hammer curl is a basic weight training "
                                                                   "exercise for the biceps muscle.")
-Exercise.create_ex("Overhead Lunge", 0, "Weighted Plate", '/media/images/overheadlunge.jpeg', "Quadriceps", "The overhead lunge is an advanced "
+Exercise.create_ex("Overhead Lunge", 0, "Weighted Plate", "None", "Quadriceps", "The overhead lunge is an advanced "
                                                                                 "weighted lunge movement for excellent "
                                                                                 "lower body development and shoulder "
                                                                                 "strength.")
-Exercise.create_ex("Renegade Row", 0, "Dumbell", '/media/images/renegaderow.jpeg', "Abdominals", "The renegade row builds serious abdominal and "
+Exercise.create_ex("Renegade Row", 0, "Dumbell", "None", "Abdominals", "The renegade row builds serious abdominal and "
                                                                        "upper-body strength that will particularly "
                                                                        "develop the core.")
-Exercise.create_ex("Sled Pulls", 0, "Rope and Sled", '/media/images/sledpull.jpeg', "Back", "Sled pulls are a brutal functional exercise that "
+Exercise.create_ex("Sled Pulls", 0, "Rope and Sled", "None", "Back", "Sled pulls are a brutal functional exercise that "
                                                                      "hits the upper body, developing both aerobic and "
                                                                      "anaerobic capacity and targeting the back, "
                                                                      "shoulders, biceps and grip muscles.")
-Exercise.create_ex("Tire Flip", 0, "Tire", 'media/images/tireflip.jpeg', "Quardiceps", "A classic strongman exercise and all round "
+Exercise.create_ex("Tire Flip", 0, "Tire", "None", "Quardiceps", "A classic strongman exercise and all round "
                                                                  "functional strength builder - the tire flip is a "
                                                                  "great addition to your strength and conditioning "
                                                                  "training routine.")
-Exercise.create_ex("Triceps Extension", 0, "Curl Bar",  'media/images/tricepsextension.jpeg', "Triceps", "A weight training exercise to target the "
+Exercise.create_ex("Triceps Extension", 0, "Curl Bar", "None", "Triceps", "A weight training exercise to target the "
                                                                           "triceps muscle.")
-Exercise.create_ex("Weighted Step-Up", 0, "Barbell", 'media/images/weightedstepup.jpeg', "Quadriceps", "The Weighted Step-up is a useful "
+Exercise.create_ex("Weighted Step-Up", 0, "Barbell", "None", "Quadriceps", "The Weighted Step-up is a useful "
                                                                            "alternative exercise to the squat and is "
                                                                            "effective in building leg strength, power "
                                                                            "and cardiovascular abilities.")
-Exercise.create_ex("Ab Wheel Rollout", 0, "Ab Wheel",  'media/images/abwheelrollout.jpeg', "Abdominals", "Classic abdominal exercise to build "
+Exercise.create_ex("Ab Wheel Rollout", 0, "Ab Wheel", "None", "Abdominals", "Classic abdominal exercise to build "
                                                                             "strength and muscular density in the "
                                                                             "abs using an ab wheel.")
-Exercise.create_ex("Body Row", 0, "Squat Rack",  'media/images/bodyrow.jpeg', "Biceps", "The body row is an excellent upper body exercise "
+Exercise.create_ex("Body Row", 0, "Squat Rack", "None", "Biceps", "The body row is an excellent upper body exercise "
                                                                   "and useful for those wanting to progress to full "
                                                                   "bodyweight pull-ups as it uses the same muscle "
                                                                   "groups.")
-Exercise.create_ex("Burpees", 0, "None",  'media/images/burpees.jpeg', "Quadriceps", "Burpees are a popular and highly effective full-body "
+Exercise.create_ex("Burpees", 0, "None", "None", "Quadriceps", "Burpees are a popular and highly effective full-body "
                                                                "conditioning exercise that requires no equipment to "
                                                                "perform.")
-Exercise.create_ex("Bridge", 0, "None",  'media/images/bridge.jpeg', "Back", "The bridge is a highly underrated bodyweight exercise that "
+Exercise.create_ex("Bridge", 0, "None", "None", "Back", "The bridge is a highly underrated bodyweight exercise that "
                                                         "builds high levels of strength and flexibility throughout the "
                                                         "body but particularly in the back and spine.")
-Exercise.create_ex("Dead Hang", 0, "Pull-Up Bar",  'media/images/deadhang.webp', "Forearms", "The dead hang is used as a good introduction to "
+Exercise.create_ex("Dead Hang", 0, "Pull-Up Bar", "None", "Forearms", "The dead hang is used as a good introduction to "
                                                                       "calisthenics / bar training and for developing "
                                                                       "foundation body strength. It's also recommended "
                                                                       "as part of the progression exercises for "
                                                                       "pull-ups.")
-Exercise.create_ex("Dips", 0, "Parallel Bars",  'media/images/parallelbars.jpeg', "Triceps", "Dips are a fundamental calisthenics exercise that "
+Exercise.create_ex("Dips", 0, "Parallel Bars", "None", "Triceps", "Dips are a fundamental calisthenics exercise that "
                                                                   "builds serious upper body strength across the "
                                                                   "chest, shoulders and triceps, whilst engaging the "
                                                                   "core.")
-Exercise.create_ex("Flexed Arm Hang", 0, "Pull-Up Bar",  'media/images/flexedarmhang.jpeg', "Biceps", "The flexed arm hang is a pull-up "
+Exercise.create_ex("Flexed Arm Hang", 0, "Pull-Up Bar", "None", "Biceps", "The flexed arm hang is a pull-up "
                                                                           "progression exercise and a common military "
                                                                           "test of upper body strength.")
-Exercise.create_ex("Frog Stand", 0, "None",  'media/images/frogstand.jpeg', "Shoulders", "The frog stand is a classic beginners gymnastics "
+Exercise.create_ex("Frog Stand", 0, "None", "None", "Shoulders", "The frog stand is a classic beginners gymnastics "
                                                                  "position to build strength and balance skills.")
-Exercise.create_ex("Handstand", 0, "None",  'media/images/handstand.jpeg', "Shoulders", "A fundamental upper-body exercise that builds "
+Exercise.create_ex("Handstand", 0, "None", "None", "Shoulders", "A fundamental upper-body exercise that builds "
                                                                 "strength and balance, the freestanding handstand is "
                                                                 "an essential bodyweight exercise worth mastering.")
-Exercise.create_ex("Front Lever", 0, "Pull-Up Bar",  'media/images/frontlever.jpeg', "Abdominals", "The front lever is an fundamental "
+Exercise.create_ex("Front Lever", 0, "Pull-Up Bar", "None", "Abdominals", "The front lever is an fundamental "
                                                                           "gymnastics strength hold that develops the "
                                                                           "core and upper-body muscles. Learn how to "
                                                                           "do the front lever and of the progression "
                                                                           "exercises path to build up to the full "
                                                                           "lever hold.")
-Exercise.create_ex("Hanging Knee Raise", 0, "Pull-Up Bar",  'media/images/hangingkneeraises.jpeg', "Abdominals", "Isolate the abs and build strength "
+Exercise.create_ex("Hanging Knee Raise", 0, "Pull-Up Bar", "None", "Abdominals", "Isolate the abs and build strength "
                                                                                  "in the hip flexors using hanging "
                                                                                  "knee raises.")
-Exercise.create_ex("Hollow Body Hold", 0, "None",  'media/images/hollowbodyhold.jpeg', "Abdominals", "The fundamental core gymnastics exercise for "
+Exercise.create_ex("Hollow Body Hold", 0, "None", "None", "Abdominals", "The fundamental core gymnastics exercise for "
                                                                         "developing mid-line stabilisation.")
-Exercise.create_ex("Lunge", 0, "None",  'media/images/lunge.jpeg', "Quadriceps", "A foundation bodyweight strength exercise for developing "
+Exercise.create_ex("Lunge", 0, "None", "None", "Quadriceps", "A foundation bodyweight strength exercise for developing "
                                                              "the leg muscles. The lunge is suitable for beginners and "
                                                              "can be used with additional weight to increase "
                                                              "intensity.")
-Exercise.create_ex("Negative Pull-Up", 0, "Pull-Up Bar",  'media/images/negativeimage.jpeg', "Back", "The negative pull-up involves performing "
+Exercise.create_ex("Negative Pull-Up", 0, "Pull-Up Bar", "None", "Back", "The negative pull-up involves performing "
                                                                          "only the lowering phase of the exercise, and "
                                                                          "is a popular technique when building "
                                                                          "strength for full pull-ups.")
-Exercise.create_ex("One-Leg Deadlift", 0, "None",  'media/images/onelegdeadlift.jpeg', "Hamstrings", "The One-Legged Deadlift is a more advanced "
+Exercise.create_ex("One-Leg Deadlift", 0, "None", "None", "Hamstrings", "The One-Legged Deadlift is a more advanced "
                                                                         "version of the regular deadlift increasing "
                                                                         "intensity on the legs and challenging your "
                                                                         "balance and coordination. It's an excellent "
                                                                         "bodyweight exercise that can be performed "
                                                                         "anywhere, with no equipment.")
-Exercise.create_ex("Plank", 0, "None",  'media/images/plank.jpeg', "Abdominals", "A fundamental core conditioning exercise - the plank "
+Exercise.create_ex("Plank", 0, "None", "None", "Abdominals", "A fundamental core conditioning exercise - the plank "
                                                              "develops the abs without a crunch in sight.")
-Exercise.create_ex("Push-Up", 0, "None",  'media/images/pushup.jpeg', "Chest", "The push-up is a fundamental upper-body strength exercise "
+Exercise.create_ex("Push-Up", 0, "None", "None", "Chest", "The push-up is a fundamental upper-body strength exercise "
                                                           "that is incredibly versatile and has many variations for "
                                                           "developing strength and definition in the chest, shoulders "
                                                           "and arms.")
-Exercise.create_ex("Pull-Up", 0, "Pull-Up Bar",  'media/images/pullup.jpeg', "Back", "The pull-up exercise is a hugely popular exercise "
+Exercise.create_ex("Pull-Up", 0, "Pull-Up Bar", "None", "Back", "The pull-up exercise is a hugely popular exercise "
                                                                 "that develops a strong and defined upper body. This "
                                                                 "is a staple movement that everyone should strive to "
                                                                 "achieve.")
-Exercise.create_ex("Sit-Up", 0, "None",  'media/images/situp.jpeg', "Abdominals", "The classic abdominal strength training exercise guide.")
-Exercise.create_ex("Bodyweight Squat", 0, "None",  'media/images/bodyweightsquat.jpeg', "Quadriceps", "The bodyweight squat is a lower body "
+Exercise.create_ex("Sit-Up", 0, "None", "None", "Abdominals", "The classic abdominal strength training exercise guide.")
+Exercise.create_ex("Bodyweight Squat", 0, "None", "None", "Quadriceps", "The bodyweight squat is a lower body "
                                                                         "strengthening exercise that can be performed "
                                                                         "virtually anywhere with no equipment and "
                                                                         "limited space. It's a highly functional "
