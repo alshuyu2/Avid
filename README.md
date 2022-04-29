@@ -9,7 +9,7 @@ For this project, it's best to use Pycharm and have the latest version of Python
 - Once you clicked on "get from VCS", paste the github URL and enter, Pycharm will create the program and adds a folder.
 ## Setting up a virtual environment 
 - While in Pycharm, click on file, then settings
-- Click on your project name and choose the python interpreter, and choose your Python interpreter
+- Click on your project name and choose the python interpreter
 - Download these necessary packages:
   - Django
   - django-crispy-forms
