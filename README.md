@@ -20,6 +20,8 @@ For this project, it's best to use Pycharm and have the latest version of Python
 - Make sure you delete db.sqlite3 first and delete every migration file except the ones that has "initial" in them
 - Type python3 manage.py makemigrations in the terminal
 - Type python3 manage.py migrate in the terminal
+- Then type python3 manage.py shell, and type exec(open('PopulateData.py').read()), then type exit()
+- Type python3 manage.py runserver in the terminal
 - Type python3 manage.py runserver in the terminal
 - Click the development server
 # You can now create an account and test the program's various functionality!
