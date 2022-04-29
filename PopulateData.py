@@ -18,7 +18,7 @@ for arg in list_of_users:
     newUser.save()
 
 
-Exercise.create_ex("Barbell Squat", 0, "Squat Rack", '/media/images/barbelsquat.jpeg', "Quadriceps", "The squat is a fundamental weight training "
+Exercise.create_ex("Barbell Squat", 0, "Squat Rack", "/media/images/barbelsquat.jpeg", "Quadriceps", "The squat is a fundamental weight training "
                                                                            "exercise for building strength, mass "
                                                                            "sports performance and long-term health.")
 Exercise.create_ex("Bench Press", 0, "Bench", '/media/images/benchpress.jpeg', "Chest", "The bench press is a fundamental barbell exercise, "
