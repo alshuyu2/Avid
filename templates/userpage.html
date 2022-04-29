@@ -1,11 +1,8 @@
-
-
 {% extends 'base.html' %}
 
 {% block title %}UserPage{% endblock %}
 
 {% block content %}
-
 
 <html lang="en">
 <head>
@@ -16,169 +13,51 @@
     <link rel="stylesheet" type = "text/css" href="userpage.css" media = "screen">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
     </head>
 <body>
 <style>
 
-   /*margins of table-->*/
+img {
+    width: 100%;
+    height: 100%
+}
+
+.bg-black {
+    background: #000
+}
+
 .skill-block {
-   width: 30%;
+    width: 30%
 }
- body{
-         margin:0;
-	    padding:0;
-        font-family: 'Raleway',sans-serif;
-         background: rgb(8, 15, 66) linear-gradient(90deg, rgb(27, 23, 87) 0%, rgb(18, 18, 129) 100%);
+
+@media (min-width: 991px) and (max-width:1200px) {
+    .skill-block {
+        padding: 32px !important
     }
-
-/*top display*/
-.home-5-bg {
-    background: #ffffff;
-    position: relative;
-    background-size: cover;
-    height: 50vh;
-    background-position: center center;
 }
 
-.section {
-    position: relative;
-}
-
-.home-5-content {
-  z-index: 1;
-  position: relative;
+@media (min-width: 1200px) {
+    .skill-block {
+        padding: 56px !important
+    }
 }
 
 
-#circle {
-    width: 95vw;
-    height: 95vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-
-    position: absolute;
-    background: radial-gradient(#0B853D 3px, transparent 5px, #000 7px, transparent 9px, #0B853D 11px, transparent 13px, 15px, transparent 17px, #000 19px, transparent 21px, #0B853D 23px, transparent 25px, #fff 27px, transparent 29px, #000 31px, transparent 33px);
-
-
-    background-size: 30px 30px;
-}
-.home-5-bg{
-   -webkit-animation: adjustHue 1s alternate infinite;
-}
-@-webkit-keyframes adjustHue {
-   0% { -webkit-filter: hue-rotate(30deg); }
-   50% { -webkit-filter: hue-rotate(60deg); }
-   100% { -webkit-filter: hue-rotate(90deg); }
-}
-@-webkit-keyframes loading {
-  to { -webkit-transform: rotate(360deg); }
-}
-@-moz-keyframes loading {
-	to { -moz-transform: rotate(360deg); }
-}
-@-ms-keyframes loading {
-	to { -ms-transform: rotate(360deg); }
-}
-@keyframes loading {
-	to { transform: rotate(360deg); }
-}
-#circle {
-    -webkit-animation-name: blinker;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-name: blinker;
-    -moz-animation-duration: 3s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: infinite;
-    animation-name: blinker;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite; color: red;
-}
-
-@-moz-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1.0; }
-}
-
-@-webkit-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1.0; }
-}
-
-@keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1.0; }
-}
-
-
-.home-5-bg{
-   background: radial-gradient(#0B853D 3px, transparent 5px, #000 7px, transparent 9px, #0B853D 11px, transparent 13px,  15px, transparent 17px, #000 19px, transparent 21px, #0B853D 23px, transparent 25px, #fff 27px, transparent 29px, #000 31px, transparent 33px);
-  background-color:#000;
-  background-size: 30px 30px;
-  overflow:hidden;
-  width:100vw;
-  height:60vh;
-  margin:0px;
-
-}
-
-/*background*/
-.bg-overlay {
-    background-color: #050505;
-    opacity: 0.7;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.home-center {
-    display: table;
-    width: 100%;
-    height: 100%;
-}
-
-.home-desc-center {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.home-5-content {
-    z-index: 1;
-    position: relative;
-}
-
-.text-white-70 {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.f-15 {
-    font-size: 30px;
-}
-
-
-/*sidebar*/
 .container .sidebar {
     position: page;
-    background-color: rgba(91, 193, 222, 100);
-    height: 110vh;
-    width: 400px;
+    background-color: #113B5E;
+    height: 100vh;
+    width: 500px;
     z-index: 10;
     text-align: center;
-    color: #ad9f9f;
+    color: #fff;
   font-size: 30px;
   font-weight: 70;
-  position : absolute;
+  position: absolute;
   left: 16px;
   line-height: 60px;
   cursor: pointer;
@@ -186,6 +65,7 @@
   transition: all 0.3s linear;
 
 }
+
 .sidebar li:nth-child(1) {
     padding: 30px 0px
 }
@@ -193,6 +73,7 @@
 .sidebar li:hover:nth-child(1) {
     padding: 30px 0px;
     background-color: transparent;
+
 }
 
 .sidebar li {
@@ -219,7 +100,70 @@
 
 
 
-/*background*/
+body{
+    margin-top:20px;
+    backgroundColor:#eee;
+}
+.home-5-bg {
+    background: #1E90FF;
+    position: relative;
+    background-size: cover;
+    height: 50vh;
+    background-position: center center;
+
+}
+
+.section {
+    position: relative;
+
+}
+
+.home-5-content {
+  z-index: 1;
+  position: relative;
+}
+
+.bg-overlay {
+    background-color: #000;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.home-center {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.home-desc-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.home-5-content {
+    z-index: 1;
+    position: relative;
+}
+
+.text-white-70 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.f-15 {
+    font-size: 20px;
+}
+
+.home-5-bg #particles-js {
+    z-index: 1!important;
+position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 
 </style>
@@ -227,13 +171,10 @@
 {#  <h2 style = "color: black">Avid: Compete for a better You</h2>#}
 {#</header>#}
 
-
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <section class="section home-5-bg" id="home">
-
-
+    <div id="particles-js"></div>
     <div class="bg-overlay"></div>
-    <div id="circle"></div>
-    <div class="a"></div>
     <div class="home-center">
         <div class="home-desc-center">
             <div class="container">
@@ -253,7 +194,123 @@
         </div>
     </div>
 </section>
-
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 20,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.22,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true,
+  "config_demo": {
+    "hide_card": false,
+    "background_color": "#b61924",
+    "background_image": "",
+    "background_position": "50% 50%",
+    "background_repeat": "no-repeat",
+    "background_size": "cover"
+  }
+});</script>
 {#<section>#}
 {#    <nav >#}
 {#        <ul>#}
@@ -264,35 +321,34 @@
 {#        </ul>#}
 {#    </nav>#}
 
-<div class="container mt-5 mb-5">
 
+<div class="container mt-5 mb-5">
 
 <div class="wrapper d-flex">
     <div class="sidebar">
         <ul>
-            <li><h4><a href="/settings" >Profile Settings</a></h4></li>
+            <li><h4><a href="/settings">Profile Settings</h4></a></li>
             <li><a href="/exercise_main">Track Workouts</a></li>
             <li><a href="/meals">Track Meals</a></li><p></p>
             <li><a href="/logout">Logout</a></li><p></p>
-            <li> <a href="/about">About</a><p></p></li><p></p>
-            <a href="/about">More</a><p></p>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a></li>
+             <li> <a href="/about">About</a><p></p></li><p></p>
+             <a href="/about">More</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact us</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Facebook</a><p></p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Twitter</a>
+            </li>
         </ul>
         </div>
     </div>
 </div>
 
-
-<!--    main information about the user -->
 <div id="root"></div>
 
     <div class="row no-gutters">
         <div class="col-md-4 col-lg-4"> </div>
         <div class="col-md-8 col-lg-8">
             <div class="d-flex flex-column">
-                <div class="d-flex flex-row justify-content-between align-items-center p-5 bg-info text-white">
+                <div class="d-flex flex-row justify-content-between align-items-center p-5 bg-dark text-white">
                     <h3 class="display-5">Welcome, {{user.name}}!</h3>
                 </div>
                 <div class="p-3 bg-black text-white">
@@ -317,6 +373,7 @@
                 <li> {{ user.weight_in_pounds }} lbs</li>
             {% endif %}</h6>
                     </div>
+
                     <div class="p-3 bg-warning text-center skill-block">
                         <h4>Age:</h4>
                         <h6>{% if user.age is 0 %}
@@ -337,7 +394,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 
 </div>

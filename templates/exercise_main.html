@@ -1,7 +1,119 @@
-
 <!DOCTYPE html>
+<html lang="en">
+
 <style>
-.dropbtn {
+    @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,regular,500,700,900);
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body{
+    height: 100%;
+}
+body{
+    background-color: #546377;
+}
+.side-menu{
+    width: 300px;
+    height: 100%;
+    padding: 50px 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(0deg,#3381b0,#87cefa);
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 5px 0px 10px rgba(17, 26, 41, 0.6);
+    position: absolute;
+    left: 0;
+
+    transition: .5s;
+    /* transform: translateX(0); */
+}
+.side-menu form{
+    display: flex;
+    margin: 0 10px 50px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+
+}
+.side-menu form input,
+.side-menu form button{
+    background-color: transparent;
+    color: #fff;
+    border:none;
+    padding:5px 10px;
+}
+.side-menu form input{
+    width: 230px;
+}
+.side-menu label{
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background-color: #000;
+    color: #fff;
+    right: -40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 80px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 0 10px 10px 0;
+}
+#side-menu-switch{
+    position: absolute;
+    opacity: 0;
+}
+#side-menu-switch:checked + .side-menu{
+    transform: translateX(-100%);
+}
+#side-menu-switch:checked + .side-menu label .fas{
+    transform:scaleX(-1);
+}
+::placeholder {
+     /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+.side-menu form button{
+    width: 50px;
+}
+.side-menu form input:focus::placeholder{
+    color: #ccc;
+}
+.side-menu form input:focus,
+.side-menu form button:focus{
+    outline: none;
+}
+nav a{
+    display: block ;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Noto Sans TC',sans-serif;
+}
+ nav a+a::before{
+     content: '';
+     position: absolute;
+     border-top: 1px solid #fff;
+     left: 10px;
+     right: 10px;
+     top: 0;
+ }
+ /* Method 1 */
+ nav a .fas{
+     margin-right: -1.1em;
+     transform: scale(0);
+     transition: .5s;
+ }
+ nav a:hover .fas{
+    margin-right: 0.3em;
+     transform: scale(1);
+ }
+
+ .dropbtn {
   background-color: #04AA6D;
   color: white;
   padding: 16px;
@@ -51,20 +163,130 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
-</style>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Exercises</title>
-    <nav>
-        <a href="/settings">Profile Settings</a><p></p>
-        <a href="/userpage">Home</a>
-        <a href="/catalog">Catalog</a>
-    </nav>
 
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #7f7fd5;
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ECE9E6;
+background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+}
+
+
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #56CCF2;
+background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #D1913C;
+background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}
+
+
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/9a416a1cca.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form autocomplete="off" method="GET" action="/exercise_add" data>
+  <input type="checkbox" name="" id="side-menu-switch">
+<div class="side-menu">
+    <form autocomplete="off" method="GET" action="/exercise_add" data >
         <div class="dropdown">
             <input onclick="myFunction()"type="text" placeholder="Search..." id="Exercise" name= "exercise" onkeyup="filterFunction()">
             <div id="myDropdown" class="dropdown-content">
@@ -74,7 +296,7 @@
             </div>
         </div>
     <input type="hidden" name="email" value={{ user.email }}>
-    <button type="submit">Select</button>
+    <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 
     <script>
@@ -109,16 +331,31 @@ toggle between hiding and showing the dropdown content */
 
         }
     </script>
-    <p>My Exercises:</p>
-    <section style="display: flex; flex-wrap: wrap">
+    <nav>
+        <a href="/settings"><i class="fas fa-gavel"></i>Profile Settings</a>
+        <a href="/userpage"><i class="fas fa-gavel"></i>Home</a>
+        <a href="/catalog"><i class="fas fa-gavel"></i>Catalog</a>
+    </nav>
+    <label for="side-menu-switch">
+        <i class="fas fa-angle-left"></i>
+    </label>
+</div>
+<div class="container">
+
         {% for ex in userexercises %}
-                <article style="height: 250px; width: 320px; padding: 10px; border: 5px solid darkcyan;">
-                    <img src="{{ ex.exercise.image }}" alt= "Preview of Exercise" width=320px height=240px>
-                    <h2>{{ ex.exercise.name }}</h2>
-                    <p>Reps done: {{ ex.reps }}</p>
-                    <p>{{ex.exercise.description}}</p>
-                </article>
+    <div class="card">
+    <div class="card__header">
+      <img src={{ ex.exercise.image }} alt="card__image" class="card__image" width="600">
+    </div>
+    <div class="card__body">
+      <h4>{{ ex.exercise.name }}</h4>
+        <p>Reps done: {{ ex.reps }}</p>
+        <p>{{ex.exercise.description}}</p>
+    </div>
+  </div>
         {% endfor %}
-    </section>
+
+</div>
+
 </body>
 </html>
