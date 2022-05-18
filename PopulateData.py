@@ -42,12 +42,12 @@ Exercise.create_ex("Biceps Curl", 0, "Dumbell", '/media/images/bicepcurl.jpg', "
                                                                   "isolation exercise.")
 Exercise.create_ex("Farmers Walk", 0, "Dumbell", '/media/images/farmerswalk.jpeg', "Forearms", "The Farmer's Walk is an old school exercise that "
                                                                      "builds grip strength and endurance.")
-Exercise.create_ex("Dumbell Pullover", 0, '/media/images/dumbellpullover.webp', "None", "Chest", "The dumbbell pullover is a classic bodybuilding "
-                                                                      "exercise that targets the upper body with "
-                                                                      "particular focus on the chest muscles.")
-Exercise.create_ex("Dumbell Shoulder Press", 0, '/media/images/dumbellshoulderpress.jpeg', "None", "Shoulders", "An essential isolation exercise for "
-                                                                                "building shoulder size and strength "
-                                                                                "in bodybuilding and weight training.")
+#Exercise.create_ex("Dumbell Pullover", 0, '/media/images/dumbellpullover.webp', "None", "Chest", "The dumbbell pullover is a classic bodybuilding "
+#                                                                      "exercise that targets the upper body with "
+#                                                                      "particular focus on the chest muscles.")
+#Exercise.create_ex("Dumbell Shoulder Press", 0, '/media/images/dumbellshoulderpress.jpeg', "None", "Shoulders", "An essential isolation exercise for "
+#                                                                                "building shoulder size and strength "
+#                                                                                "in bodybuilding and weight training.")
 Exercise.create_ex("Overhead Squat", 0, "Barbell", '/media/images/overheadsquat.jpeg', "Quadriceps", "The overhead squat is an advanced weight "
                                                                          "training movement that is a true test of "
                                                                          "midline control and develops impressive "
@@ -61,7 +61,7 @@ Exercise.create_ex("Overhead Lunge", 0, "Weighted Plate", '/media/images/overhea
 Exercise.create_ex("Renegade Row", 0, "Dumbell", '/media/images/renegaderow.jpeg', "Abdominals", "The renegade row builds serious abdominal and "
                                                                        "upper-body strength that will particularly "
                                                                        "develop the core.")
-Exercise.create_ex("Sled Pulls", 0, "Rope and Sled", '/media/images/sledpull.jpeg', "Back", "Sled pulls are a brutal functional exercise that "
+Exercise.create_ex("Sled Pulls", 0, "Rope and Sled", '/media/images/sledppull.jpeg', "Back", "Sled pulls are a brutal functional exercise that "
                                                                      "hits the upper body, developing both aerobic and "
                                                                      "anaerobic capacity and targeting the back, "
                                                                      "shoulders, biceps and grip muscles.")
@@ -85,7 +85,7 @@ Exercise.create_ex("Body Row", 0, "Squat Rack",  'media/images/bodyrow.jpeg', "B
 Exercise.create_ex("Burpees", 0, "None",  'media/images/burpees.jpeg', "Quadriceps", "Burpees are a popular and highly effective full-body "
                                                                "conditioning exercise that requires no equipment to "
                                                                "perform.")
-Exercise.create_ex("Bridge", 0, "None",  'media/images/bridge.jpeg', "Back", "The bridge is a highly underrated bodyweight exercise that "
+Exercise.create_ex("Bridge", 0, "None",  'media/images/bridges.jpeg', "Back", "The bridge is a highly underrated bodyweight exercise that "
                                                         "builds high levels of strength and flexibility throughout the "
                                                         "body but particularly in the back and spine.")
 Exercise.create_ex("Dead Hang", 0, "Pull-Up Bar",  'media/images/deadhang.webp', "Forearms", "The dead hang is used as a good introduction to "
