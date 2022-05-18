@@ -1,32 +1,61 @@
-{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
+<style>
+.content {
+  max-width: 300px;
+  margin: auto;
+}
+
+body {
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);
+    font-size: 25px;
+    font-family: Georgia;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.screen {
+	background: linear-gradient(90deg, #5D54A4, #7C78B8);
+	position: relative;
+	height: 600px;
+	width: 360px;
+	box-shadow: 0px 0px 24px #5C5696;
+}
+
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Avid User Settings</title>
 </head>
 <body>
-    {% block content %}
+
+<div class="container">
+<div class="screen">
+<div class="content">
+{% block content %}
 
     <p>Email: {{user.email}}</p>
-        <nav>
-            <a href="/userpage">Home</a>
-        </nav>
         <form method="POST" action="/edit_user" data>
             {% csrf_token %}
-            <label for="name">Name</label>
+            <label for="name">Name:</label>
                 <input type="text" id="name" name="name" value={{ user.name }}><br>
 
-            <label for="height_in_inches">Height(inches)</label>
+            <label for="height_in_inches">Height(inches):</label>
                 <input type="number" id="height_in_inches" name="height_in_inches" min="24" max="96" value={{ user.height_in_inches }}><br>
 
-            <label for="weight_in_pounds">Weight(pounds)</label>
+            <label for="weight_in_pounds">Weight(pounds):</label>
                 <input type="number" id="weight_in_pounds" name="weight_in_pounds" min="50" max="500" value={{ user.weight_in_pounds }}><br>
 
-            <label for="age">Age</label>
+            <label for="age">Age:</label>
                 <input type="number" id="age" name="age" min="1" max="100" value={{ user.age }}><br>
 
-            <label for="sex">Sex</label>
+            <label for="sex">Sex:</label>
                 <select id="sex" name="sex">
                     {% if user.sex is True %}
                         <option value="male">Male</option>
@@ -37,7 +66,8 @@
                     {% endif %}
                 </select><br>
 
-            <input type="hidden" name="email" value={{ user.email }}>
+            <input type="hidden" name="email" value={{ user.email }}> <br>
+            <button><a href="/userpage">Home</a></button>
             <button type="submit">submit</button>
         </form>
         {% if messages %}
@@ -48,5 +78,8 @@
         </ul>
         {% endif %}
     {% endblock %}
+</div>
+</div>
+</div>
 </body>
 </html>
